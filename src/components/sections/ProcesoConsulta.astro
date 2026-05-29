@@ -1,7 +1,4 @@
 ---
-// Sección adicional 2 — Proceso de consulta
-// Reduce la ansiedad del paciente explicando cómo funciona la primera visita
-
 const DOCTORALIA =
   'https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar';
 
@@ -44,10 +41,8 @@ const pasos: Paso[] = [
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
 
     <!-- Header -->
-    <div class="mb-20 reveal">
-      <h2
-        class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl"
-      >
+    <div class="mb-20" data-anim="header">
+      <h2 class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl">
         Así funciona tu
         <em class="not-italic text-[#67c5d4]">primera consulta.</em>
       </h2>
@@ -56,15 +51,15 @@ const pasos: Paso[] = [
       </p>
     </div>
 
-    <!-- Pasos -->
+    <!-- Pasos — cada uno se anima individualmente al hacer scroll -->
     <div class="divide-y divide-[#4b528a]/35">
-      {pasos.map((paso, i) => (
+      {pasos.map((paso) => (
         <div
-          class="reveal group grid grid-cols-1 lg:grid-cols-5 gap-8 py-12 lg:py-14
+          data-anim="step"
+          class="group grid grid-cols-1 lg:grid-cols-5 gap-8 py-12 lg:py-14
                  hover:bg-[#4b528a]/08 transition-colors duration-300"
-          style={`transition-delay: ${i * 80}ms`}
         >
-          <!-- Número (1 col en lg) -->
+          <!-- Número -->
           <div class="flex items-start gap-4 lg:gap-0 lg:flex-col lg:justify-between lg:col-span-1">
             <span
               class="font-mono text-5xl md:text-6xl font-bold leading-none
@@ -74,9 +69,8 @@ const pasos: Paso[] = [
             </span>
           </div>
 
-          <!-- Contenido (4 cols en lg) -->
+          <!-- Contenido -->
           <div class="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            <!-- Izquierda: título + descripción -->
             <div>
               <h3
                 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4
@@ -84,12 +78,9 @@ const pasos: Paso[] = [
               >
                 {paso.titulo}
               </h3>
-              <p class="text-[#7d84b2] text-base leading-relaxed">
-                {paso.descripcion}
-              </p>
+              <p class="text-[#7d84b2] text-base leading-relaxed">{paso.descripcion}</p>
             </div>
 
-            <!-- Derecha: lista de detalles -->
             <ul class="grid grid-cols-2 gap-x-4 gap-y-3 self-center">
               {paso.detalles.map((detalle) => (
                 <li class="flex items-center gap-2.5 text-[#7d84b2] text-sm">
@@ -109,14 +100,9 @@ const pasos: Paso[] = [
       ))}
     </div>
 
-    <!-- CTA final del proceso -->
-    <div class="mt-16 flex flex-col sm:flex-row items-center gap-6 reveal">
-      <a
-        href={DOCTORALIA}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-primary"
-      >
+    <!-- CTA final -->
+    <div class="mt-16 flex flex-col sm:flex-row items-center gap-6" data-anim="up">
+      <a href={DOCTORALIA} target="_blank" rel="noopener noreferrer" class="btn-primary">
         Comenzar ahora →
       </a>
       <p class="text-[#7d84b2] text-sm">

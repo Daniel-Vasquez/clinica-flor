@@ -1,8 +1,6 @@
 ---
-// FAQ — Preguntas frecuentes de coloproctología
-
 interface FAQItem {
-  pregunta: string;
+  pregunta:  string;
   respuesta: string;
 }
 
@@ -38,10 +36,8 @@ const faqs: FAQItem[] = [
   <div class="max-w-3xl mx-auto px-6 lg:px-0">
 
     <!-- Header -->
-    <div class="mb-16 reveal">
-      <h2
-        class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl"
-      >
+    <div class="mb-16" data-anim="header">
+      <h2 class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl">
         Preguntas<br />
         <em class="not-italic text-[#67c5d4]">frecuentes.</em>
       </h2>
@@ -50,13 +46,10 @@ const faqs: FAQItem[] = [
       </p>
     </div>
 
-    <!-- Acordeón -->
+    <!-- Acordeón — cada item se anima en cascada al entrar al viewport -->
     <div class="divide-y divide-[#4b528a]/40">
-      {faqs.map((faq, i) => (
-        <details
-          class="reveal group py-7 cursor-pointer"
-          style={`transition-delay: ${i * 70}ms`}
-        >
+      {faqs.map((faq) => (
+        <details data-anim="faq" class="group py-7 cursor-pointer">
           <summary class="flex items-center justify-between gap-6 list-none select-none">
             <h3
               class="font-heading font-bold text-lg md:text-xl text-white
@@ -83,13 +76,9 @@ const faqs: FAQItem[] = [
     </div>
 
     <!-- CTA post-FAQ -->
-    <div class="mt-14 text-center reveal">
-      <p class="text-[#7d84b2] text-sm mb-5">
-        ¿Tienes más dudas? Contáctanos directamente.
-      </p>
-      <a href="#contacto" class="btn-outline">
-        Hacer una pregunta →
-      </a>
+    <div class="mt-14 text-center" data-anim="up">
+      <p class="text-[#7d84b2] text-sm mb-5">¿Tienes más dudas? Contáctanos directamente.</p>
+      <a href="#contacto" class="btn-outline">Hacer una pregunta →</a>
     </div>
 
   </div>
