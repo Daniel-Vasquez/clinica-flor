@@ -1,0 +1,112 @@
+---
+// Hero — Clínica Flor · Coloproctología
+// Imagen de fondo: /images/hero-bg.jpg (foto médica profesional, tono oscuro)
+
+const DOCTORALIA =
+  'https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar';
+---
+
+<section
+  id="inicio"
+  class="relative min-h-screen flex flex-col justify-end pb-16 md:pb-28 overflow-hidden"
+>
+  <!-- Imagen de fondo (placeholder) -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="/images/hero-bg.jpg"
+      alt="Consulta médica — Dra. Flor Moreno Coloproctología"
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+      decoding="async"
+    />
+    <!-- Degradado: suave arriba → sólido abajo -->
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(to bottom, rgba(39,37,56,0.45) 0%, rgba(39,37,56,0.72) 45%, #272538 100%);"
+    ></div>
+  </div>
+
+  <!-- Indicador de scroll -->
+  <div class="absolute bottom-10 right-8 z-10 hidden md:flex flex-col items-center gap-2">
+    <div class="w-px h-12 bg-gradient-to-b from-[#67c5d4] to-transparent"></div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
+    <div class="max-w-3xl">
+
+      <!-- Chip / etiqueta -->
+      <div class="inline-flex items-center gap-2 border border-[#67c5d4]/40 bg-[#67c5d4]/10
+                  rounded-full px-4 py-1.5 mb-8">
+        <span class="w-2 h-2 rounded-full bg-[#67c5d4] animate-pulse"></span>
+        <span class="text-[#67c5d4] text-xs font-medium tracking-wide">
+          Especialista en Coloproctología
+        </span>
+      </div>
+
+      <!-- H1 -->
+      <h1
+        class="font-heading font-bold text-white leading-[1.06] tracking-tight mb-7
+               text-[clamp(2.4rem,6vw,5.2rem)]"
+      >
+        ¡Tu <em class="not-italic text-[#67c5d4]">salud</em><br />
+        es lo más<br />
+        <em class="not-italic text-[#EF999E]">importante!</em>
+      </h1>
+
+      <!-- Subtexto -->
+      <p class="text-[#7d84b2] text-lg md:text-xl max-w-xl mb-11 leading-relaxed">
+        A través de buenos hábitos alimenticios y un tratamiento adecuado podemos
+        evitar complicaciones o cirugías, que te permitan recuperar tu
+        <strong class="text-white/80 font-medium">salud colorrectal.</strong>
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4 mb-16">
+        <a
+          href={DOCTORALIA}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          ¡Agenda tu cita ahora! →
+        </a>
+        <a href="#padecimientos" class="btn-outline">
+          Ver padecimientos
+        </a>
+      </div>
+
+      <!-- Métricas de confianza -->
+      <div class="flex flex-wrap items-center gap-6 md:gap-10">
+        <div>
+          <p class="font-heading font-bold text-2xl text-white leading-tight">12+</p>
+          <p class="text-[#7d84b2] text-[11px] uppercase tracking-wider">Años de experiencia</p>
+        </div>
+
+        <div class="hidden md:block w-px h-10 bg-white/15"></div>
+
+        <div>
+          <p class="font-heading font-bold text-2xl text-white leading-tight">2</p>
+          <p class="text-[#7d84b2] text-[11px] uppercase tracking-wider">Hospitales certificados</p>
+        </div>
+
+        <div class="hidden md:block w-px h-10 bg-white/15"></div>
+
+        <div>
+          <p class="font-heading font-bold text-2xl text-white leading-tight">100%</p>
+          <p class="text-[#7d84b2] text-[11px] uppercase tracking-wider">Consulta personalizada</p>
+        </div>
+
+        <div class="hidden md:block w-px h-10 bg-white/15"></div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-[#67c5d4] text-base" aria-label="5 estrellas">★★★★★</span>
+          <div>
+            <p class="text-white text-sm font-semibold leading-tight">Doctoralia</p>
+            <p class="text-[#7d84b2] text-xs">Opiniones verificadas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

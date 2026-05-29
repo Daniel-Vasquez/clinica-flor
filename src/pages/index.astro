@@ -1,0 +1,29 @@
+---
+import Layout            from '../layouts/Layout.astro';
+import Navbar            from '../components/navigation/Navbar';
+import Hero              from '../components/sections/Hero.astro';
+import Padecimientos     from '../components/sections/Padecimientos.astro';
+import Clinica           from '../components/sections/Clinica.astro';
+import PorQueElegirnos   from '../components/sections/PorQueElegirnos.astro';
+import ProcesoConsulta   from '../components/sections/ProcesoConsulta.astro';
+import FAQ               from '../components/sections/FAQ.astro';
+import Contact           from '../components/sections/Contact.astro';
+import Footer            from '../components/Footer.astro';
+---
+
+<Layout
+  title="Dra. Flor Moreno — Especialista en Coloproctología | Clínica Colorrectal CDMX"
+  description="Más de 12 años de experiencia en coloproctología. Tratamiento de hemorroides, fisuras y fístulas anales. Consulta personalizada en hospitales certificados en CDMX."
+>
+  <Navbar client:load />
+  <main>
+    <Hero />
+    <Padecimientos />
+    <Clinica />
+    <PorQueElegirnos />
+    <ProcesoConsulta />
+    <FAQ />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>

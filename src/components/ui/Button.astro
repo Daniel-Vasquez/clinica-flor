@@ -1,0 +1,29 @@
+---
+export interface Props {
+  href?:     string;
+  variant?:  'primary' | 'outline';
+  type?:     'button' | 'submit' | 'reset';
+  class?:    string;
+  fullWidth?: boolean;
+}
+
+const {
+  href,
+  variant    = 'primary',
+  type       = 'button',
+  class: cls = '',
+  fullWidth  = false,
+} = Astro.props;
+
+const variantClass = variant === 'primary' ? 'btn-primary' : 'btn-outline';
+const widthClass   = fullWidth ? 'w-full justify-center' : '';
+const Tag          = href ? 'a' : 'button';
+---
+
+<Tag
+  href={href}
+  type={href ? undefined : type}
+  class:list={[variantClass, widthClass, cls]}
+>
+  <slot />
+</Tag>

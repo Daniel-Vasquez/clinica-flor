@@ -1,0 +1,128 @@
+---
+// Sección adicional 2 — Proceso de consulta
+// Reduce la ansiedad del paciente explicando cómo funciona la primera visita
+
+const DOCTORALIA =
+  'https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar';
+
+interface Paso {
+  numero:      string;
+  titulo:      string;
+  descripcion: string;
+  detalles:    string[];
+}
+
+const pasos: Paso[] = [
+  {
+    numero:      '01',
+    titulo:      'Agenda tu cita',
+    descripcion: 'Reserva tu consulta de forma rápida y sencilla a través de Doctoralia, disponible las 24 horas. Recibirás confirmación y recordatorio automático.',
+    detalles:    ['Agenda en línea 24/7', 'Confirmación inmediata', 'Sin filas ni esperas', 'Pago seguro'],
+  },
+  {
+    numero:      '02',
+    titulo:      'Primera consulta',
+    descripcion: 'La Dra. Flor te atenderá personalmente. Realizará un historial clínico completo, evaluación física y, si es necesario, estudios diagnósticos.',
+    detalles:    ['Historial clínico completo', 'Exploración física', 'Diagnóstico preciso', 'Trato confidencial'],
+  },
+  {
+    numero:      '03',
+    titulo:      'Plan de tratamiento',
+    descripcion: 'Recibirás un plan personalizado que prioriza las opciones menos invasivas: cambios de hábitos, medicación o procedimientos de consultorio antes que la cirugía.',
+    detalles:    ['Opciones personalizadas', 'Alternativas a la cirugía', 'Explicación clara', 'Sin presiones'],
+  },
+  {
+    numero:      '04',
+    titulo:      'Seguimiento y recuperación',
+    descripcion: 'El acompañamiento continúa después del tratamiento. La Dra. Flor monitorea tu progreso para garantizar una recuperación completa y prevenir recidivas.',
+    detalles:    ['Citas de seguimiento', 'Monitoreo del progreso', 'Ajuste del tratamiento', 'Orientación continua'],
+  },
+];
+---
+
+<section id="proceso" class="py-24 md:py-36 overflow-hidden" style="background-color: #1e1c2e;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header -->
+    <div class="mb-20 reveal">
+      <h2
+        class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl"
+      >
+        Así funciona tu
+        <em class="not-italic text-[#67c5d4]">primera consulta.</em>
+      </h2>
+      <p class="text-[#7d84b2] text-lg mt-4 max-w-xl">
+        Un proceso claro, sin sorpresas. Tu bienestar y comodidad son nuestra prioridad.
+      </p>
+    </div>
+
+    <!-- Pasos -->
+    <div class="divide-y divide-[#4b528a]/35">
+      {pasos.map((paso, i) => (
+        <div
+          class="reveal group grid grid-cols-1 lg:grid-cols-5 gap-8 py-12 lg:py-14
+                 hover:bg-[#4b528a]/08 transition-colors duration-300"
+          style={`transition-delay: ${i * 80}ms`}
+        >
+          <!-- Número (1 col en lg) -->
+          <div class="flex items-start gap-4 lg:gap-0 lg:flex-col lg:justify-between lg:col-span-1">
+            <span
+              class="font-mono text-5xl md:text-6xl font-bold leading-none
+                     text-[#4b528a] group-hover:text-[#67c5d4]/40 transition-colors duration-300"
+            >
+              {paso.numero}
+            </span>
+          </div>
+
+          <!-- Contenido (4 cols en lg) -->
+          <div class="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <!-- Izquierda: título + descripción -->
+            <div>
+              <h3
+                class="font-heading font-bold text-3xl md:text-4xl text-white mb-4
+                       group-hover:text-[#67c5d4] transition-colors duration-300"
+              >
+                {paso.titulo}
+              </h3>
+              <p class="text-[#7d84b2] text-base leading-relaxed">
+                {paso.descripcion}
+              </p>
+            </div>
+
+            <!-- Derecha: lista de detalles -->
+            <ul class="grid grid-cols-2 gap-x-4 gap-y-3 self-center">
+              {paso.detalles.map((detalle) => (
+                <li class="flex items-center gap-2.5 text-[#7d84b2] text-sm">
+                  <span
+                    class="w-5 h-5 rounded-full flex items-center justify-center shrink-0
+                           bg-[#67c5d4]/10 border border-[#67c5d4]/40"
+                    aria-hidden="true"
+                  >
+                    <span class="text-[#67c5d4] text-[10px]">✓</span>
+                  </span>
+                  {detalle}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA final del proceso -->
+    <div class="mt-16 flex flex-col sm:flex-row items-center gap-6 reveal">
+      <a
+        href={DOCTORALIA}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary"
+      >
+        Comenzar ahora →
+      </a>
+      <p class="text-[#7d84b2] text-sm">
+        Disponible en Hospital San Ángel Inn Patriotismo y Star Médica Luna Parc
+      </p>
+    </div>
+
+  </div>
+</section>

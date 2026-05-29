@@ -1,0 +1,195 @@
+---
+// Contacto — Clínica Colorrectal · Dra. Flor Moreno
+
+const DOCTORALIA =
+  'https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar';
+---
+
+<section id="contacto" class="py-24 md:py-36" style="background-color: #1e1c2e;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header -->
+    <div class="mb-16 reveal">
+      <h2
+        class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl"
+      >
+        ¡Da el primer paso<br />
+        <em class="not-italic text-[#EF999E]">hacia tu bienestar!</em>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+
+      <!-- Izquierda: info de contacto -->
+      <div class="reveal">
+        <p class="text-[#7d84b2] text-lg leading-relaxed mb-10">
+          Agenda tu cita en línea a través de Doctoralia o envíanos un mensaje.
+          Respondemos en menos de 24 horas con orientación personalizada.
+        </p>
+
+        <!-- Botón Doctoralia destacado -->
+        <a
+          href={DOCTORALIA}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary mb-10 w-full justify-center sm:w-auto"
+        >
+          Agendar en Doctoralia →
+        </a>
+
+        <!-- Hospitales -->
+        <div class="space-y-4 mb-10">
+          <p class="text-[#7d84b2] text-xs uppercase tracking-widest font-semibold">
+            Consultorios disponibles en:
+          </p>
+
+          <div class="flex items-start gap-3">
+            <span class="text-[#67c5d4] mt-0.5 shrink-0">🏥</span>
+            <div>
+              <p class="text-white text-sm font-semibold">Hospital San Ángel Inn Patriotismo</p>
+              <p class="text-[#7d84b2] text-xs">Ciudad de México</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-[#67c5d4] mt-0.5 shrink-0">🏥</span>
+            <div>
+              <p class="text-white text-sm font-semibold">Hospital Star Médica Luna Parc</p>
+              <p class="text-[#7d84b2] text-xs">Ciudad de México</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disponibilidad -->
+        <div class="flex items-center gap-3">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+          <p class="text-[#7d84b2] text-sm">
+            Agenda en línea disponible 24/7 · Confirmación inmediata
+          </p>
+        </div>
+      </div>
+
+      <!-- Derecha: formulario de contacto -->
+      <form
+        class="reveal space-y-5"
+        style="transition-delay: 100ms;"
+        action="#"
+        method="POST"
+      >
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="nombre" class="field-label">Nombre</label>
+            <input
+              id="nombre"
+              name="nombre"
+              type="text"
+              placeholder="Tu nombre"
+              required
+              class="field-input"
+            />
+          </div>
+          <div>
+            <label for="apellido" class="field-label">Apellido</label>
+            <input
+              id="apellido"
+              name="apellido"
+              type="text"
+              placeholder="Tu apellido"
+              required
+              class="field-input"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="email" class="field-label">Correo electrónico</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="tu@correo.com"
+              required
+              class="field-input"
+            />
+          </div>
+          <div>
+            <label for="telefono" class="field-label">Teléfono</label>
+            <input
+              id="telefono"
+              name="telefono"
+              type="tel"
+              placeholder="+52 55 0000 0000"
+              class="field-input"
+            />
+          </div>
+        </div>
+
+        <!-- Padecimiento -->
+        <div>
+          <label for="padecimiento" class="field-label">
+            Motivo de consulta&nbsp;<span class="text-[#4b528a] normal-case font-normal">(opcional)</span>
+          </label>
+          <select
+            id="padecimiento"
+            name="padecimiento"
+            class="field-input"
+          >
+            <option value="" class="bg-[#272538]">Selecciona un padecimiento…</option>
+            <option value="hemorroides"   class="bg-[#272538]">Hemorroides</option>
+            <option value="fisuras"       class="bg-[#272538]">Fisuras anales</option>
+            <option value="fistula"       class="bg-[#272538]">Fístula anal</option>
+            <option value="otro"          class="bg-[#272538]">Otro / No lo sé</option>
+          </select>
+        </div>
+
+        <!-- Mensaje -->
+        <div>
+          <label for="mensaje" class="field-label">
+            Mensaje&nbsp;<span class="text-[#4b528a] normal-case font-normal">(opcional)</span>
+          </label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows={4}
+            placeholder="Cuéntame brevemente tu situación o pregunta…"
+            class="field-input resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Privacidad -->
+        <div class="flex items-start gap-3 pt-1">
+          <input
+            id="privacidad"
+            name="privacidad"
+            type="checkbox"
+            required
+            class="mt-0.5 w-4 h-4 rounded accent-[#67c5d4] shrink-0"
+          />
+          <label for="privacidad" class="text-[#7d84b2] text-xs leading-relaxed">
+            Acepto el
+            <a href="/privacidad" class="text-[#67c5d4] hover:underline">aviso de privacidad</a>
+            y consiento el uso de mis datos para atender mi solicitud.
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary w-full justify-center">
+          Enviar mensaje →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .field-label {
+    @apply block text-[#7d84b2] text-[10px] uppercase tracking-widest mb-2 font-semibold;
+  }
+
+  .field-input {
+    @apply w-full bg-[#4b528a]/20 border border-[#4b528a]/50 rounded-xl
+           px-4 py-3 text-white text-sm placeholder-[#4b528a]
+           focus:outline-none focus:border-[#67c5d4] focus:bg-[#4b528a]/30
+           transition-colors duration-200;
+  }
+</style>

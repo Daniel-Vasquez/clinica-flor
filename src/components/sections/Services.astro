@@ -1,0 +1,102 @@
+---
+// [03] Services — four core disciplines
+
+interface Service {
+  number: string;
+  title: string;
+  description: string;
+  features: string[];
+  accentColor: string;
+}
+
+const services: Service[] = [
+  {
+    number:      '01',
+    title:       'Websites',
+    description: 'High-performance marketing sites, landing pages and e-commerce solutions focused on conversion and speed.',
+    features:    ['Next.js & React', 'Headless CMS', 'SEO & Performance', 'A/B Testing'],
+    accentColor: '#67c5d4',
+  },
+  {
+    number:      '02',
+    title:       'Branding',
+    description: 'Brand identities from logo to design system — built to last and scale with your business.',
+    features:    ['Logo & Wordmark', 'Visual Identity', 'Design System', 'Brand Guidelines'],
+    accentColor: '#EF999E',
+  },
+  {
+    number:      '03',
+    title:       'Software',
+    description: 'Custom tools, internal platforms and SaaS products engineered for performance and scalability.',
+    features:    ['Web Applications', 'API & Backend', 'SaaS Platforms', 'Internal Tools'],
+    accentColor: '#67c5d4',
+  },
+  {
+    number:      '04',
+    title:       'Mobile Apps',
+    description: 'Native and cross-platform apps with first-class user experience across iOS and Android.',
+    features:    ['iOS & Android', 'React Native', 'App Store Launch', 'Push & Analytics'],
+    accentColor: '#EF999E',
+  },
+];
+---
+
+<section id="services" class="py-24 md:py-36" style="background-color: #1e1c2e;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header -->
+    <div class="mb-16 reveal">
+      <span class="section-number block mb-4">[03]</span>
+      <h2 class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl">
+        What we <em class="not-italic text-[#EF999E]">build.</em>
+      </h2>
+    </div>
+
+    <!-- Grid with 1px gap acting as dividers -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#4b528a]/25">
+      {services.map((service, i) => (
+        <article
+          class="reveal group bg-[#1e1c2e] p-8 lg:p-10
+                 hover:bg-[#4b528a]/15 transition-colors duration-300"
+          style={`transition-delay: ${i * 100}ms`}
+        >
+          <!-- Number badge -->
+          <div class="flex items-center justify-between mb-7">
+            <span
+              class="font-mono text-xs tracking-widest px-3 py-1 rounded-full border"
+              style={`color: ${service.accentColor}; border-color: ${service.accentColor}33;`}
+            >
+              {service.number}
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h3
+            class="font-heading font-bold text-3xl md:text-4xl text-white mb-4
+                   group-hover:text-[#67c5d4] transition-colors duration-300"
+          >
+            {service.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-[#7d84b2] text-base leading-relaxed mb-8">
+            {service.description}
+          </p>
+
+          <!-- Feature list -->
+          <ul class="space-y-2.5">
+            {service.features.map((feature) => (
+              <li class="flex items-center gap-3 text-[#7d84b2] text-sm">
+                <span
+                  class="w-1.5 h-1.5 rounded-full shrink-0"
+                  style={`background-color: ${service.accentColor};`}
+                ></span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

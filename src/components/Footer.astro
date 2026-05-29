@@ -1,0 +1,123 @@
+---
+const DOCTORALIA =
+  'https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar';
+
+const navegacion = [
+  { label: 'Padecimientos',  href: '#padecimientos' },
+  { label: 'La Clínica',     href: '#clinica'       },
+  { label: 'La Doctora',     href: '#doctora'       },
+  { label: 'Proceso',        href: '#proceso'       },
+  { label: 'FAQ',            href: '#faq'           },
+  { label: 'Contacto',       href: '#contacto'      },
+];
+
+const hospitales = [
+  'Hospital San Ángel Inn Patriotismo',
+  'Hospital Star Médica Luna Parc',
+];
+---
+
+<footer class="bg-[#1e1c2e] border-t border-[#4b528a]/40">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-14 md:py-20">
+
+    <!-- Grid principal -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14">
+
+      <!-- Columna 1: marca -->
+      <div>
+        <img
+          src="/images/logo.png"
+          alt="Clínica Flor — Dra. Flor Moreno"
+          class="h-8 w-auto mb-5"
+          width="120"
+          height="32"
+        />
+        <p class="text-[#7d84b2] text-sm leading-relaxed max-w-xs mb-6">
+          Especialista en Coloproctología con más de 12 años de experiencia.
+          Consulta personalizada, confidencial y resultados satisfactorios.
+        </p>
+
+        <!-- Insignia Doctoralia -->
+        <a
+          href={DOCTORALIA}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#4b528a]/30 border border-[#4b528a]/50
+                 hover:border-[#67c5d4]/50 rounded-xl px-4 py-2.5
+                 transition-all duration-200"
+        >
+          <span class="text-[#67c5d4] text-sm" aria-hidden="true">★★★★★</span>
+          <span class="text-white text-xs font-medium">Ver perfil en Doctoralia</span>
+        </a>
+      </div>
+
+      <!-- Columna 2: navegación -->
+      <div>
+        <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-[#7d84b2] mb-5">
+          Navegación
+        </h4>
+        <ul class="space-y-3">
+          {navegacion.map(({ label, href }) => (
+            <li>
+              <a
+                href={href}
+                class="text-[#7d84b2] hover:text-[#67c5d4] text-sm transition-colors duration-200"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Columna 3: hospitales + CTA -->
+      <div>
+        <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-[#7d84b2] mb-5">
+          Consultorios
+        </h4>
+        <ul class="space-y-3 mb-8">
+          {hospitales.map((h) => (
+            <li class="flex items-start gap-2">
+              <span class="text-[#67c5d4] text-xs mt-0.5 shrink-0">🏥</span>
+              <span class="text-[#7d84b2] text-sm">{h}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href={DOCTORALIA}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-[#67c5d4] text-[#272538] font-bold
+                 px-6 py-2.5 rounded-full text-sm
+                 hover:bg-[#67c5d4]/90 transition-all duration-200"
+        >
+          Agendar cita →
+        </a>
+      </div>
+    </div>
+
+    <!-- Barra inferior -->
+    <div
+      class="border-t border-[#4b528a]/40 pt-8
+             flex flex-col sm:flex-row items-center justify-between gap-4"
+    >
+      <p class="text-[#4b528a] text-xs">
+        © 2025 Dra. Flor Moreno · Clínica Colorrectal CDMX. Todos los derechos reservados.
+      </p>
+      <div class="flex gap-6">
+        {[
+          { label: 'Aviso de Privacidad', href: '/privacidad'  },
+          { label: 'Términos de Uso',     href: '/terminos'    },
+        ].map(({ label, href }) => (
+          <a
+            href={href}
+            class="text-[#4b528a] hover:text-[#7d84b2] text-xs transition-colors"
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

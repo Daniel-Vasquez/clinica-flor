@@ -1,0 +1,159 @@
+---
+// Sección 1 — Padecimientos que atiendo
+// Incluye cards de condiciones + bio de la doctora + CTA
+
+const DOCTORALIA =
+  'https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar';
+
+interface Padecimiento {
+  titulo:    string;
+  resumen:   string;
+  icono:     string;
+  color:     string;
+}
+
+const padecimientos: Padecimiento[] = [
+  {
+    titulo:  'Hemorroides',
+    resumen: 'Las hemorroides, también conocidas como almorranas, son venas inflamadas en el recto o el ano. Pueden causar dolor, sangrado y molestia, pero con el tratamiento adecuado se resuelven de forma efectiva.',
+    icono:   '◉',
+    color:   '#67c5d4',
+  },
+  {
+    titulo:  'Fisuras',
+    resumen: 'Es una herida en la piel perianal por trauma anal, que genera dolor intenso durante y después de evacuar. Con manejo adecuado se puede cicatrizar sin necesidad de cirugía en la mayoría de los casos.',
+    icono:   '◈',
+    color:   '#EF999E',
+  },
+  {
+    titulo:  'Fístula Anal',
+    resumen: 'Comunicación anormal entre la piel perianal y el ano que genera secreción constante y molestia. Requiere diagnóstico preciso y tratamiento especializado para su resolución definitiva.',
+    icono:   '⬡',
+    color:   '#67c5d4',
+  },
+];
+---
+
+<section id="padecimientos" class="py-24 md:py-36 bg-brand-navy">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header -->
+    <div class="mb-16 reveal">
+      <h2
+        class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl max-w-2xl"
+      >
+        Estos son algunos de los
+        <em class="not-italic text-[#67c5d4]">padecimientos</em>
+        que atiendo
+      </h2>
+    </div>
+
+    <!-- Cards de padecimientos -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      {padecimientos.map((p, i) => (
+        <article
+          class="reveal group bg-[#4b528a]/20 border border-[#4b528a]/40 rounded-2xl p-8
+                 hover:border-[#67c5d4]/40 hover:bg-[#4b528a]/30
+                 transition-all duration-300 flex flex-col"
+          style={`transition-delay: ${i * 90}ms`}
+        >
+          <!-- Ícono -->
+          <div
+            class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-6"
+            style={`background-color: ${p.color}15; color: ${p.color};`}
+            aria-hidden="true"
+          >
+            {p.icono}
+          </div>
+
+          <!-- Título -->
+          <h3
+            class="font-heading font-bold text-2xl text-white mb-4
+                   group-hover:text-[#67c5d4] transition-colors duration-200"
+          >
+            {p.titulo}
+          </h3>
+
+          <!-- Texto -->
+          <p class="text-[#7d84b2] text-sm leading-relaxed mb-8 flex-1">
+            {p.resumen}
+          </p>
+
+          <!-- Botón -->
+          <a
+            href="#contacto"
+            class="inline-flex items-center gap-2 text-sm font-semibold
+                   border border-[#4b528a] hover:border-[#67c5d4]
+                   text-[#7d84b2] hover:text-[#67c5d4]
+                   px-5 py-2.5 rounded-full transition-all duration-200 w-fit"
+          >
+            Leer más →
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTA ver todos -->
+    <div class="flex justify-center mb-20 reveal">
+      <a
+        href="#contacto"
+        class="btn-outline"
+      >
+        Ver todos los padecimientos
+      </a>
+    </div>
+
+    <!-- ─── Bio de la doctora ─── -->
+    <div
+      class="reveal grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center
+             bg-gradient-to-br from-[#4b528a]/30 to-[#4b528a]/10
+             border border-[#4b528a]/40 rounded-3xl p-8 md:p-12"
+    >
+      <!-- Foto -->
+      <div class="flex justify-center lg:justify-start">
+        <div
+          class="relative w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden
+                 ring-4 ring-[#67c5d4]/30 ring-offset-4 ring-offset-[#272538]
+                 bg-[#4b528a]/30"
+        >
+          <!-- Reemplaza con foto de la doctora -->
+          <img
+            src="/images/profile/dra-flor-moreno.jpg"
+            alt="Dra. Flor Moreno — Especialista en Coloproctología"
+            class="w-full h-full object-cover object-top"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Texto + CTAs -->
+      <div>
+        <p
+          class="text-white text-lg md:text-xl leading-relaxed mb-8
+                 border-l-2 border-[#EF999E] pl-5"
+        >
+          Soy la <strong class="text-[#EF999E]">Dra. Flor Moreno</strong>,
+          especialista en Coloproctología con más de
+          <strong class="text-white">12 años de experiencia</strong>.
+          Me ocupo en que mis pacientes tengan
+          <strong class="text-[#67c5d4]">resultados satisfactorios</strong>.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a
+            href={DOCTORALIA}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            Agenda tu cita →
+          </a>
+          <a href="#doctora" class="btn-outline">
+            Conocer más
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,108 @@
+---
+// [04] Process — briefing to launch
+
+interface Step {
+  number: string;
+  title: string;
+  description: string;
+  details: string[];
+  image: string;
+}
+
+const steps: Step[] = [
+  {
+    number:      '01',
+    title:       'Strategy',
+    description: 'We start with a deep dive into your business, goals and competition to define a clear roadmap before a single pixel is drawn.',
+    details:     ['Briefing workshops', 'Competitor analysis', 'Brand strategy', 'Roadmap development'],
+    image:       '/images/process/process-strategy.jpg',
+  },
+  {
+    number:      '02',
+    title:       'Design',
+    description: 'From wireframes to polished UI — every element is crafted with intent and aligned with your brand identity.',
+    details:     ['Brand identity', 'Wireframes & UX', 'UI design', 'Design system'],
+    image:       '/images/process/process-design.jpg',
+  },
+  {
+    number:      '03',
+    title:       'Build',
+    description: 'Clean, performant code built on modern frameworks with obsessive focus on speed, accessibility and scalability.',
+    details:     ['Frontend & CMS', 'Backend & API', 'Performance optimization', 'QA & Testing'],
+    image:       '/images/process/process-build.jpg',
+  },
+  {
+    number:      '04',
+    title:       'Launch & Care',
+    description: 'We handle go-live and keep iterating — analytics, maintenance and continuous improvements included.',
+    details:     ['Go-live deployment', 'Analytics setup', 'Maintenance & updates', 'Continuous iteration'],
+    image:       '/images/process/process-launch.jpg',
+  },
+];
+---
+
+<section id="process" class="py-24 md:py-36 bg-brand-navy">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header -->
+    <div class="mb-20 reveal">
+      <span class="section-number block mb-4">[04]</span>
+      <h2 class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl">
+        From <em class="not-italic text-[#67c5d4]">briefing</em><br />
+        to <em class="not-italic text-[#EF999E]">launch.</em>
+      </h2>
+    </div>
+
+    <!-- Steps list -->
+    <div class="divide-y divide-[#4b528a]/35">
+      {steps.map((step, i) => (
+        <div
+          class="reveal group grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16
+                 py-12 lg:py-16 hover:bg-[#4b528a]/08 transition-colors duration-300"
+          style={`transition-delay: ${i * 80}ms`}
+        >
+          <!-- Left: text -->
+          <div class="flex gap-7 lg:gap-10 items-start">
+            <span class="text-[#4b528a] font-mono text-sm pt-1.5 shrink-0 select-none">
+              {step.number}
+            </span>
+            <div>
+              <h3 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4
+                         group-hover:text-[#67c5d4] transition-colors duration-300">
+                {step.title}
+              </h3>
+              <p class="text-[#7d84b2] text-base leading-relaxed mb-7 max-w-md">
+                {step.description}
+              </p>
+              <ul class="grid grid-cols-2 gap-x-4 gap-y-2.5">
+                {step.details.map((detail) => (
+                  <li class="flex items-center gap-2 text-[#7d84b2] text-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#EF999E] shrink-0"></span>
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right: image placeholder -->
+          <div class="lg:pl-8">
+            <div
+              class="aspect-video rounded-2xl overflow-hidden bg-[#4b528a]/25
+                     ring-1 ring-[#4b528a]/40"
+            >
+              <img
+                src={step.image}
+                alt={`Process — ${step.title}`}
+                class="w-full h-full object-cover opacity-75
+                       group-hover:opacity-100 group-hover:scale-[1.02]
+                       transition-all duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+---
+export interface Props {
+  number: string;
+  class?: string;
+}
+
+const { number, class: className = '' } = Astro.props;
+---
+
+<span class:list={['section-number', className]}>
+  [{number}]
+</span>

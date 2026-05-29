@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:wibify.agency)",
+      "Bash(npm install *)",
+      "Bash(npx astro *)"
+    ]
+  }
+}

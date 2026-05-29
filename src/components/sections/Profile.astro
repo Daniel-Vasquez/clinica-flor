@@ -1,0 +1,101 @@
+---
+// [07] Profile — Kerim Bilin, founder
+
+const metrics = [
+  { value: '93M',  label: 'Page views (last 12 mo.)'  },
+  { value: '3M',   label: 'Unique users'               },
+  { value: '1B+',  label: 'Network requests'           },
+  { value: '+47%', label: 'Growth trajectory'          },
+];
+
+const guarantees = [
+  'On-page SEO optimization',
+  'Tracking & analytics implementation',
+  '100% responsive design',
+  'ROI-focused approach',
+  'Zero handoffs between specialists',
+  '100 Lighthouse score across all metrics',
+];
+---
+
+<section id="profile" class="py-24 md:py-36 bg-brand-navy">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header -->
+    <div class="mb-16 reveal">
+      <span class="section-number block mb-4">[07]</span>
+      <h2 class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl">
+        The person<br />
+        <em class="not-italic text-[#EF999E]">behind the work.</em>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-start">
+
+      <!-- Left: photo -->
+      <div class="relative reveal">
+        <div
+          class="aspect-[3/4] rounded-2xl overflow-hidden bg-[#4b528a]/25
+                 ring-1 ring-[#4b528a]/40 max-w-sm"
+        >
+          <!-- Replace with Kerim's actual photo -->
+          <img
+            src="/images/profile/kerim-bilin.jpg"
+            alt="Kerim Bilin — Founder of Wibify"
+            class="w-full h-full object-cover object-top"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Name card -->
+        <div
+          class="absolute -bottom-5 -right-0 md:-right-6
+                 bg-[#4b528a] rounded-2xl p-5 shadow-2xl max-w-[200px]"
+        >
+          <p class="font-heading font-bold text-white text-base leading-tight">Kerim Bilin</p>
+          <p class="text-[#7d84b2] text-xs mt-1">Founder · Developer · Designer</p>
+        </div>
+      </div>
+
+      <!-- Right: content -->
+      <div class="reveal" style="transition-delay: 120ms;">
+        <p class="text-[#7d84b2] text-lg leading-relaxed mb-9">
+          Started writing HTML at age ten.
+          Over <strong class="text-white">11+ years</strong> of coding experience,
+          first project in <strong class="text-white">2015</strong>.
+          Based in NRW, building digital products directly —
+          no hand-offs to juniors, no layers of agency bloat.
+          Every project is delivered by the founder, end to end.
+        </p>
+
+        <!-- Performance metrics -->
+        <div class="grid grid-cols-2 gap-4 mb-10">
+          {metrics.map(({ value, label }) => (
+            <div
+              class="bg-[#4b528a]/25 border border-[#4b528a]/50 rounded-xl p-5"
+            >
+              <p class="font-heading font-bold text-3xl text-[#67c5d4]">{value}</p>
+              <p class="text-[#7d84b2] text-xs mt-1.5">{label}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Quality guarantees -->
+        <ul class="space-y-3">
+          {guarantees.map((item) => (
+            <li class="flex items-center gap-3">
+              <span
+                class="w-5 h-5 rounded-full flex items-center justify-center shrink-0
+                       bg-[#67c5d4]/10 border border-[#67c5d4]/50"
+                aria-hidden="true"
+              >
+                <span class="text-[#67c5d4] text-xs">✓</span>
+              </span>
+              <span class="text-[#7d84b2] text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

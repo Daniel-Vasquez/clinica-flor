@@ -1,0 +1,86 @@
+---
+// [02] Selected Work — portfolio grid
+import ProjectCard from '../ui/ProjectCard.astro';
+
+interface Project {
+  name: string;
+  tags: string[];
+  year: string;
+  image: string;
+  href?: string;
+  featured?: boolean;
+}
+
+const projects: Project[] = [
+  {
+    name:     'Die Lackier-Werkstatt',
+    tags:     ['Website', 'Branding'],
+    year:     '2025',
+    image:    '/images/projects/project-lackier-werkstatt.jpg',
+    featured: true,
+  },
+  {
+    name:  'UnfallFix24',
+    tags:  ['Website', 'Software'],
+    year:  '2025',
+    image: '/images/projects/project-unfallfix24.jpg',
+  },
+  {
+    name:  'Mousa Export',
+    tags:  ['Website'],
+    year:  '2025',
+    image: '/images/projects/project-mousa-export.jpg',
+  },
+  {
+    name:     'Steak Club',
+    tags:     ['Website', 'Branding'],
+    year:     '2024',
+    image:    '/images/projects/project-steak-club.jpg',
+    featured: true,
+  },
+  {
+    name:  'Josh Jabs',
+    tags:  ['Website', 'Branding'],
+    year:  '2024',
+    image: '/images/projects/project-josh-jabs.jpg',
+  },
+  {
+    name:  'Umzugsservice',
+    tags:  ['Website', 'SEO'],
+    year:  '2024',
+    image: '/images/projects/project-umzugsservice.jpg',
+  },
+];
+---
+
+<section id="work" class="py-24 md:py-36 bg-brand-navy">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header row -->
+    <div class="flex items-end justify-between mb-16 reveal">
+      <div>
+        <span class="section-number block mb-4">[02]</span>
+        <h2 class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl">
+          Selected <em class="not-italic text-[#67c5d4]">Work</em>
+        </h2>
+      </div>
+      <a
+        href="#contact"
+        class="hidden md:inline-flex items-center gap-2 text-sm font-medium text-[#7d84b2]
+               hover:text-[#67c5d4] border border-[#4b528a] hover:border-[#67c5d4]
+               px-5 py-2.5 rounded-full transition-all duration-200"
+      >
+        All projects →
+      </a>
+    </div>
+
+    <!-- Projects grid: 2 columns on md+ -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {projects.map((project, i) => (
+        <div class="reveal" style={`transition-delay: ${i * 80}ms`}>
+          <ProjectCard {...project} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

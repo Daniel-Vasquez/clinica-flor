@@ -1,0 +1,96 @@
+---
+// FAQ — Preguntas frecuentes de coloproctología
+
+interface FAQItem {
+  pregunta: string;
+  respuesta: string;
+}
+
+const faqs: FAQItem[] = [
+  {
+    pregunta:  '¿Cuándo debo consultar a un especialista en coloproctología?',
+    respuesta: 'Si presentas sangrado rectal, dolor al evacuar, sensación de peso o bulto en la zona anal, secreción, comezón persistente o cambios en tu ritmo intestinal por más de dos semanas, es momento de consultar. La detección temprana facilita tratamientos más sencillos y evita complicaciones.',
+  },
+  {
+    pregunta:  '¿Las hemorroides siempre requieren cirugía?',
+    respuesta: 'No. La mayoría de los casos de hemorroides se resuelven con cambios en la dieta, hidratación, medicamentos tópicos o procedimientos de consultorio como la ligadura elástica. La cirugía se considera solo en casos avanzados o cuando otros tratamientos no han funcionado.',
+  },
+  {
+    pregunta:  '¿Cómo es la primera consulta con la Dra. Flor?',
+    respuesta: 'La consulta es completamente personalizada y confidencial. Se realiza un historial clínico detallado, una exploración física y, si es necesario, estudios adicionales. Al final recibirás un diagnóstico claro y un plan de tratamiento explicado paso a paso, sin tecnicismos.',
+  },
+  {
+    pregunta:  '¿Cuánto tiempo tarda el tratamiento?',
+    respuesta: 'Depende del padecimiento y su grado de evolución. Un tratamiento con medicación puede durar de 2 a 6 semanas. Los procedimientos de consultorio generalmente se realizan en una sola sesión. Para casos quirúrgicos, la recuperación suele ser de 2 a 4 semanas.',
+  },
+  {
+    pregunta:  '¿Tienen cobertura con seguros médicos?',
+    respuesta: 'Sí. Los procedimientos realizados en Hospital San Ángel Inn Patriotismo y Star Médica Luna Parc tienen cobertura con los principales seguros de gastos médicos mayores. Te recomendamos verificar directamente con tu aseguradora los detalles de tu póliza.',
+  },
+  {
+    pregunta:  '¿Cómo puedo agendar una cita?',
+    respuesta: 'Puedes agendar tu cita de forma rápida y sencilla a través de Doctoralia, disponible las 24 horas. Solo selecciona el hospital de tu preferencia, elige el horario que mejor te acomode y confirma tu reserva. Recibirás un correo de confirmación y un recordatorio automático.',
+  },
+];
+---
+
+<section id="faq" class="py-24 md:py-36 bg-brand-navy">
+  <div class="max-w-3xl mx-auto px-6 lg:px-0">
+
+    <!-- Header -->
+    <div class="mb-16 reveal">
+      <h2
+        class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl"
+      >
+        Preguntas<br />
+        <em class="not-italic text-[#67c5d4]">frecuentes.</em>
+      </h2>
+      <p class="text-[#7d84b2] text-base mt-4 max-w-md">
+        Resolvemos las dudas más comunes de nuestros pacientes antes de su primera visita.
+      </p>
+    </div>
+
+    <!-- Acordeón -->
+    <div class="divide-y divide-[#4b528a]/40">
+      {faqs.map((faq, i) => (
+        <details
+          class="reveal group py-7 cursor-pointer"
+          style={`transition-delay: ${i * 70}ms`}
+        >
+          <summary class="flex items-center justify-between gap-6 list-none select-none">
+            <h3
+              class="font-heading font-bold text-lg md:text-xl text-white
+                     group-open:text-[#67c5d4] transition-colors duration-200 text-left"
+            >
+              {faq.pregunta}
+            </h3>
+            <span
+              class="shrink-0 w-8 h-8 rounded-full border border-[#4b528a]
+                     flex items-center justify-center text-[#7d84b2] text-xl leading-none
+                     group-open:border-[#67c5d4] group-open:text-[#67c5d4]
+                     group-open:rotate-45 transition-all duration-300"
+              aria-hidden="true"
+            >
+              +
+            </span>
+          </summary>
+
+          <p class="text-[#7d84b2] text-base leading-relaxed mt-5">
+            {faq.respuesta}
+          </p>
+        </details>
+      ))}
+    </div>
+
+    <!-- CTA post-FAQ -->
+    <div class="mt-14 text-center reveal">
+      <p class="text-[#7d84b2] text-sm mb-5">
+        ¿Tienes más dudas? Contáctanos directamente.
+      </p>
+      <a href="#contacto" class="btn-outline">
+        Hacer una pregunta →
+      </a>
+    </div>
+
+  </div>
+</section>

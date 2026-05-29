@@ -1,0 +1,161 @@
+---
+// Sección 2 — Clínica Colorrectal
+// Presentación de la clínica, hospitales y perfil de la doctora
+
+const DOCTORALIA =
+  'https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar';
+
+const hospitales = [
+  {
+    nombre:    'Hospital San Ángel Inn Patriotismo',
+    ciudad:    'Ciudad de México',
+    icono:     '🏥',
+  },
+  {
+    nombre:    'Hospital Star Médica Luna Parc',
+    ciudad:    'Ciudad de México',
+    icono:     '🏥',
+  },
+];
+---
+
+<section id="clinica" class="py-24 md:py-36 overflow-hidden" style="background-color: #1e1c2e;">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header -->
+    <div class="mb-16 reveal">
+      <h2
+        class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl"
+      >
+        Clínica
+        <em class="not-italic text-[#67c5d4]">Colorrectal</em>
+      </h2>
+    </div>
+
+    <!-- Contenido principal: texto + foto clínica -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start mb-16">
+
+      <!-- Izquierda: descripción -->
+      <div class="reveal">
+        <p class="text-[#7d84b2] text-lg leading-relaxed mb-6">
+          Somos un grupo de especialistas encabezados por la
+          <strong class="text-white">Dra. Flor Moreno</strong>,
+          médico especialista en coloproctología, quién te atenderá
+          <strong class="text-[#67c5d4]">personalmente</strong> durante tu visita
+          con un trato <strong class="text-[#67c5d4]">confidencial, personalizado</strong>
+          y de acuerdo a tus necesidades.
+        </p>
+
+        <p class="text-[#7d84b2] text-lg leading-relaxed mb-10">
+          Además podrás tener acceso a
+          <strong class="text-white">diferentes alternativas de tratamiento</strong>,
+          mismo que puedes recibir en nuestros hospitales afiliados.
+        </p>
+
+        <!-- Hospitales -->
+        <div class="space-y-4 mb-10">
+          <p class="text-[#7d84b2] text-xs uppercase tracking-widest font-semibold mb-5">
+            Atención hospitalaria en:
+          </p>
+          {hospitales.map((h) => (
+            <div
+              class="flex items-center gap-4 bg-[#4b528a]/25 border border-[#4b528a]/40
+                     rounded-xl px-5 py-4"
+            >
+              <span class="text-2xl shrink-0" aria-hidden="true">{h.icono}</span>
+              <div>
+                <p class="font-heading font-bold text-white text-base leading-tight">{h.nombre}</p>
+                <p class="text-[#7d84b2] text-xs mt-0.5">{h.ciudad}</p>
+              </div>
+              <span class="ml-auto text-[#67c5d4] text-sm" aria-hidden="true">✓</span>
+            </div>
+          ))}
+        </div>
+
+        <a
+          href={DOCTORALIA}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          Agenda tu consulta →
+        </a>
+      </div>
+
+      <!-- Derecha: foto de la clínica -->
+      <div class="reveal" style="transition-delay: 120ms;">
+        <div
+          class="aspect-[4/5] rounded-2xl overflow-hidden bg-[#4b528a]/25
+                 ring-1 ring-[#4b528a]/40"
+        >
+          <!-- Reemplaza con foto de la clínica o sala de consulta -->
+          <img
+            src="/images/clinica/clinica-interior.jpg"
+            alt="Interior de Clínica Colorrectal — Dra. Flor Moreno"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Tarjeta de perfil de la Doctora ─── -->
+    <div id="doctora" class="reveal scroll-mt-24">
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-8
+               bg-gradient-to-r from-[#4b528a]/30 to-[#272538]/50
+               border border-[#4b528a]/40 rounded-3xl p-8 md:p-10"
+      >
+        <!-- Foto -->
+        <div class="flex flex-col items-center text-center">
+          <div
+            class="w-36 h-36 rounded-full overflow-hidden ring-4 ring-[#67c5d4]/30
+                   ring-offset-4 ring-offset-[#1e1c2e] bg-[#4b528a]/30 mb-4"
+          >
+            <img
+              src="/images/profile/dra-flor-moreno.jpg"
+              alt="Dra. Flor Moreno"
+              class="w-full h-full object-cover object-top"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="font-heading font-bold text-xl text-white">Dra. Flor Moreno</h3>
+          <p class="text-[#7d84b2] text-sm mt-1">Especialista en Coloproctología</p>
+          <!-- Cédula / verificación -->
+          <div
+            class="mt-3 flex items-center gap-1.5 text-xs text-[#67c5d4]
+                   bg-[#67c5d4]/10 px-3 py-1 rounded-full border border-[#67c5d4]/20"
+          >
+            <span>✓</span>
+            <span>Médico verificado</span>
+          </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="md:col-span-2 flex flex-col justify-center">
+          <p class="text-[#7d84b2] text-base leading-relaxed mb-7">
+            Más de <strong class="text-white">12 años de experiencia</strong>
+            atendiendo diferentes tipos de padecimientos coloproctológicos
+            y brindando resultados satisfactorios a sus pacientes.
+            Atención personalizada, confidencial y con alternativas modernas de tratamiento.
+          </p>
+
+          <!-- Stats rápidos -->
+          <div class="grid grid-cols-3 gap-4">
+            {[
+              { valor: '12+', etiqueta: 'Años de experiencia' },
+              { valor: '2',   etiqueta: 'Hospitales afiliados' },
+              { valor: '★★★★★', etiqueta: 'Doctoralia' },
+            ].map(({ valor, etiqueta }) => (
+              <div class="text-center bg-[#272538]/60 rounded-xl py-4 px-3">
+                <p class="font-heading font-bold text-xl text-[#67c5d4] leading-tight">{valor}</p>
+                <p class="text-[#7d84b2] text-xs mt-1">{etiqueta}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
