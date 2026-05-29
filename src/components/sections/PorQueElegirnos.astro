@@ -1,59 +1,13 @@
 ---
-const DOCTORALIA =
-  'https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar';
-
-interface Beneficio {
-  numero: string;
-  titulo: string;
-  texto:  string;
-  color:  string;
-}
-
-const beneficios: Beneficio[] = [
-  {
-    numero: '01',
-    titulo: 'Experiencia comprobada',
-    texto:  'Más de 12 años atendiendo padecimientos coloproctológicos con resultados satisfactorios y pacientes que regresan por recomendación.',
-    color:  '#67c5d4',
-  },
-  {
-    numero: '02',
-    titulo: 'Trato confidencial y personalizado',
-    texto:  'Cada paciente es único. La Dra. Flor dedica el tiempo necesario para escucharte, diagnosticar correctamente y explicarte todas tus opciones.',
-    color:  '#EF999E',
-  },
-  {
-    numero: '03',
-    titulo: 'Alternativas a la cirugía',
-    texto:  'Siempre exploramos primero los tratamientos menos invasivos. Muchos padecimientos se resuelven con hábitos, medicación o procedimientos de consultorio.',
-    color:  '#67c5d4',
-  },
-  {
-    numero: '04',
-    titulo: 'Hospitales certificados',
-    texto:  'Atención en Hospital San Ángel Inn Patriotismo y Star Médica Luna Parc — instalaciones de primer nivel con tecnología médica actualizada.',
-    color:  '#EF999E',
-  },
-  {
-    numero: '05',
-    titulo: 'Seguimiento post-tratamiento',
-    texto:  'La atención no termina con el procedimiento. Realizamos un seguimiento continuo para asegurar tu recuperación completa y prevenir recidivas.',
-    color:  '#67c5d4',
-  },
-  {
-    numero: '06',
-    titulo: 'Sin esperas innecesarias',
-    texto:  'Agenda en línea disponible 24/7 a través de Doctoralia. Confirmación inmediata y recordatorios automáticos para tu tranquilidad.',
-    color:  '#EF999E',
-  },
-];
+// Por qué elegir a la Dra. Flor — Gooey tabs interactivos
+import GooeyPorQueTabs from '../ui/gooey-por-que-tabs';
 ---
 
-<section id="por-que" class="py-24 md:py-36 bg-brand-navy">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+<section id="por-que" class="bg-brand-navy pt-24 md:pt-32 pb-0 scroll-mt-20">
 
-    <!-- Header: split, ambas columnas se animan como header -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20" data-anim="header">
+  <!-- Header (estático en Astro, animado con GSAP) -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 mb-16" data-anim="header">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div>
         <h2 class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl">
           ¿Por qué elegir a la
@@ -67,48 +21,9 @@ const beneficios: Beneficio[] = [
         </p>
       </div>
     </div>
-
-    <!-- Grid de beneficios — stagger -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#4b528a]/20 mb-16"
-      data-anim="stagger"
-    >
-      {beneficios.map((b) => (
-        <div
-          data-anim="item"
-          class="group bg-brand-navy p-8 lg:p-9
-                 hover:bg-[#4b528a]/15 transition-colors duration-300"
-        >
-          <div class="flex items-center justify-between mb-6">
-            <span
-              class="font-mono text-xs tracking-widest px-3 py-1 rounded-full border"
-              style={`color: ${b.color}; border-color: ${b.color}33;`}
-            >
-              {b.numero}
-            </span>
-          </div>
-
-          <h3
-            class="font-heading font-bold text-xl text-white mb-4
-                   group-hover:text-[#67c5d4] transition-colors duration-200"
-          >
-            {b.titulo}
-          </h3>
-
-          <p class="text-[#7d84b2] text-sm leading-relaxed">{b.texto}</p>
-        </div>
-      ))}
-    </div>
-
-    <!-- CTA central -->
-    <div class="text-center" data-anim="up">
-      <p class="text-[#7d84b2] mb-6 text-base">
-        ¿Lista para dar el primer paso hacia tu recuperación?
-      </p>
-      <a href={DOCTORALIA} target="_blank" rel="noopener noreferrer" class="btn-primary">
-        Agenda tu primera consulta →
-      </a>
-    </div>
-
   </div>
+
+  <!-- Gooey tabs React (client:load para hidratación inmediata) -->
+  <GooeyPorQueTabs client:load />
+
 </section>
