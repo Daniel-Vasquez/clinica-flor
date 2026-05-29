@@ -92,7 +92,6 @@ export function ScrollingFeatureShowcase() {
     // El contenedor ocupa n × 100vh en el flujo normal de la página
     <div ref={containerRef} style={{ height: `${slidesData.length * 100}vh` }}>
 
-      {/* Panel sticky: permanece en vista mientras el usuario hace scroll */}
       <div
         className="sticky top-0 h-screen w-full"
         style={{
@@ -102,10 +101,8 @@ export function ScrollingFeatureShowcase() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 h-full w-full max-w-7xl mx-auto">
 
-          {/* ── Columna izquierda: texto + paginación ── */}
           <div className="relative flex flex-col justify-center px-8 md:px-16 border-r border-white/10">
 
-            {/* Etiqueta de sección + barras de paginación */}
             <div className="absolute top-12 left-8 md:left-16">
               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7d84b2] mb-4">
                 Padecimientos que atiendo
@@ -129,7 +126,6 @@ export function ScrollingFeatureShowcase() {
               </div>
             </div>
 
-            {/* Área de contenido animada por slide */}
             <div className="relative h-80 w-full mt-4">
               {slidesData.map((slide, i) => (
                 <div
@@ -140,7 +136,6 @@ export function ScrollingFeatureShowcase() {
                     transform: i === activeIndex ? "translateY(0)" : "translateY(40px)",
                   }}
                 >
-                  {/* Número + badge */}
                   <span
                     className="text-[10px] font-mono tracking-widest px-3 py-1 rounded-full border inline-block mb-6"
                     style={{
@@ -151,12 +146,10 @@ export function ScrollingFeatureShowcase() {
                     /{slide.number}
                   </span>
 
-                  {/* Título */}
                   <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white font-heading">
                     {slide.title}
                   </h2>
 
-                  {/* Subtítulo */}
                   <p
                     className="text-xs font-semibold uppercase tracking-wider mt-2"
                     style={{ color: slide.accentColor }}
@@ -164,7 +157,6 @@ export function ScrollingFeatureShowcase() {
                     {slide.subtitle}
                   </p>
 
-                  {/* Descripción */}
                   <p className="mt-6 text-base md:text-lg max-w-md leading-relaxed text-[#7d84b2]">
                     {slide.description}
                   </p>
@@ -172,7 +164,6 @@ export function ScrollingFeatureShowcase() {
               ))}
             </div>
 
-            {/* CTA */}
             <div className="absolute bottom-14 left-8 md:left-16 flex flex-col sm:flex-row gap-3">
               <a
                 href={DOCTORALIA}
@@ -195,18 +186,11 @@ export function ScrollingFeatureShowcase() {
             </div>
           </div>
 
-          {/* ── Columna derecha: imagen con slider vertical ── */}
           <div
             className="hidden md:flex items-center justify-center p-8"
             style={gridStyle}
           >
             <div className="relative w-[55%] h-[80vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-              {/*
-                Truco del slider vertical:
-                - Inner div tiene h-full (= 80vh del contenedor)
-                - Cada img también h-full (80vh), apiladas verticalmente (overflow)
-                - translateY(-i * 100%) mueve en unidades de 80vh
-              */}
               <div
                 className="absolute top-0 left-0 w-full h-full"
                 style={{
@@ -222,13 +206,11 @@ export function ScrollingFeatureShowcase() {
                       className="h-full w-full object-cover"
                       loading={i === 0 ? "eager" : "lazy"}
                     />
-                    {/* Overlay degradado bottom */}
                     <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent" />
                   </div>
                 ))}
               </div>
 
-              {/* Dot indicators superpuestos */}
               <div className="absolute bottom-5 right-5 flex flex-col gap-2 z-10">
                 {slidesData.map((slide, i) => (
                   <button

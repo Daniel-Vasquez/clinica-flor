@@ -45,7 +45,6 @@ export default function Navbar() {
         }`}
       >
         <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
-          {/* Logo */}
           <a href="/" className="shrink-0 flex items-center gap-3">
             <img
               src="/images/logo.png"
@@ -56,7 +55,6 @@ export default function Navbar() {
             />
           </a>
 
-          {/* Desktop links */}
           <ul className="hidden md:flex items-center gap-7 list-none m-0 p-0">
             {NAV_LINKS.map(({ href, label }) => (
               <li key={href}>
@@ -70,7 +68,6 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Desktop CTA */}
           <a
             href={DOCTORALIA}
             target="_blank"
@@ -82,7 +79,6 @@ export default function Navbar() {
             Agenda tu cita →
           </a>
 
-          {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
@@ -94,7 +90,6 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile overlay */}
       <div
         aria-hidden={!menuOpen}
         className={`fixed inset-0 z-40 bg-[#272538] flex flex-col justify-center items-center

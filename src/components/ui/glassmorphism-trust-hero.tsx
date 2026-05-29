@@ -44,7 +44,6 @@ export default function GlassmorphismTrustHero() {
       className="relative w-full text-white overflow-hidden"
       style={{ backgroundColor: "#272538" }}
     >
-      {/* Scoped animations — prefixed gth- to avoid Tailwind conflicts */}
       <style>{`
         @keyframes gthFadeSlideIn {
           from { opacity: 0; transform: translateY(20px); }
@@ -63,7 +62,6 @@ export default function GlassmorphismTrustHero() {
         .gth-d5 { animation-delay: 0.62s; }
       `}</style>
 
-      {/* Background image with gradient mask */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
@@ -76,14 +74,11 @@ export default function GlassmorphismTrustHero() {
         }}
       />
 
-      {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-28 pb-12 sm:px-6 md:pt-36 md:pb-20 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8 items-start">
 
-          {/* ── LEFT COLUMN ── */}
           <div className="lg:col-span-7 flex flex-col justify-center space-y-8 pt-4">
 
-            {/* Badge */}
             <div className="gth-fade gth-d1">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#67c5d4]/30 bg-[#67c5d4]/10 px-4 py-1.5 backdrop-blur-md hover:bg-[#67c5d4]/15 transition-colors">
                 <span className="relative flex h-2 w-2 shrink-0">
@@ -96,7 +91,6 @@ export default function GlassmorphismTrustHero() {
               </div>
             </div>
 
-            {/* Heading */}
             <h1
               className="gth-fade gth-d2 font-heading font-bold tracking-tight leading-[1.04]"
               style={{
@@ -123,14 +117,12 @@ export default function GlassmorphismTrustHero() {
               ¡importante!
             </h1>
 
-            {/* Description */}
             <p className="gth-fade gth-d3 max-w-xl text-lg text-[#7d84b2] leading-relaxed">
               A través de buenos hábitos alimenticios y un tratamiento adecuado
               podemos evitar complicaciones o cirugías, que te permitan recuperar tu{" "}
               <strong className="text-white/85 font-medium">salud colorrectal.</strong>
             </p>
 
-            {/* CTAs */}
             <div className="gth-fade gth-d4 flex flex-col sm:flex-row gap-4">
               <a
                 href={DOCTORALIA}
@@ -158,17 +150,13 @@ export default function GlassmorphismTrustHero() {
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN ── */}
           <div className="lg:col-span-5 space-y-6 lg:mt-10">
 
-            {/* Glass stats card */}
             <div className="gth-fade gth-d5 relative overflow-hidden rounded-3xl border border-[#4b528a]/50 bg-[#4b528a]/20 p-8 backdrop-blur-xl shadow-2xl">
-              {/* Glow */}
               <div className="absolute top-0 right-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-[#67c5d4]/6 blur-3xl pointer-events-none" />
 
               <div className="relative z-10">
 
-                {/* Main stat */}
                 <div className="flex items-center gap-4 mb-8">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#67c5d4]/15 ring-1 ring-[#67c5d4]/30">
                     <Stethoscope className="h-6 w-6 text-[#67c5d4]" />
@@ -179,7 +167,6 @@ export default function GlassmorphismTrustHero() {
                   </div>
                 </div>
 
-                {/* Progress bar */}
                 <div className="space-y-3 mb-8">
                   <div className="flex justify-between text-sm">
                     <span className="text-[#7d84b2]">Satisfacción del paciente</span>
@@ -196,10 +183,8 @@ export default function GlassmorphismTrustHero() {
                   </div>
                 </div>
 
-                {/* Divider */}
                 <div className="h-px w-full bg-[#4b528a]/60 mb-6" />
 
-                {/* Mini stats */}
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <StatItem value="30+"  label="Pacientes"     />
                   <div className="w-px h-full bg-[#4b528a]/60 mx-auto" />
@@ -208,9 +193,7 @@ export default function GlassmorphismTrustHero() {
                   <StatItem value="100%" label="Personalizada" />
                 </div>
 
-                {/* Status pills */}
                 <div className="mt-8 flex flex-wrap gap-2">
-                  {/* Disponible */}
                   <div className="inline-flex items-center gap-1.5 rounded-full border border-[#4b528a]/50 bg-[#4b528a]/20 px-3 py-1 text-[10px] font-medium tracking-wide text-[#7d84b2]">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
@@ -219,13 +202,11 @@ export default function GlassmorphismTrustHero() {
                     DISPONIBLE
                   </div>
 
-                  {/* Certificada */}
                   <div className="inline-flex items-center gap-1.5 rounded-full border border-[#4b528a]/50 bg-[#4b528a]/20 px-3 py-1 text-[10px] font-medium tracking-wide text-[#7d84b2]">
                     <Shield className="w-3 h-3 text-[#67c5d4]" />
                     CERTIFICADA
                   </div>
 
-                  {/* Doctoralia */}
                   <div className="inline-flex items-center gap-1.5 rounded-full border border-[#4b528a]/50 bg-[#4b528a]/20 px-3 py-1 text-[10px] font-medium tracking-wide text-[#7d84b2]">
                     <Star className="w-3 h-3 text-[#EF999E]" />
                     DOCTORALIA ★★★★★
@@ -234,7 +215,6 @@ export default function GlassmorphismTrustHero() {
               </div>
             </div>
 
-            {/* Marquee card */}
             <div className="gth-fade gth-d5 relative overflow-hidden rounded-3xl border border-[#4b528a]/50 bg-[#4b528a]/20 py-8 backdrop-blur-xl">
               <h3 className="mb-6 px-8 text-sm font-medium text-[#7d84b2]">
                 Atención hospitalaria certificada
@@ -270,7 +250,6 @@ export default function GlassmorphismTrustHero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-8 right-8 z-10 hidden md:flex flex-col items-center gap-2">
         <div className="w-px h-12 bg-gradient-to-b from-[#67c5d4] to-transparent" />
       </div>

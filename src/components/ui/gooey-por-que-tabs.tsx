@@ -91,25 +91,15 @@ function GooeyPorQueTabs() {
 
   return (
     <div className="w-full py-4 px-4 md:px-8" style={{ backgroundColor: "#272538" }}>
-      {/* SVG gooey filter (hidden, referenced via CSS) */}
       <GooeyFilter
         id="gooey-por-que"
         strength={screenSize.lessThan("md") ? 8 : 15}
       />
 
-      <div className="w-full max-w-4xl mx-auto">
-
-        {/* ── Outer wrapper: positions gooey shapes + text labels ── */}
+      <div className="w-full max-w-6xl mx-auto">
         <div className="relative">
-
-          {/*
-            Layer 1 — shapes with gooey filter.
-            The SVG filter blurs + sharpens to create the morphing blob effect
-            as the active tab slides between positions.
-          */}
           <div style={{ filter: "url(#gooey-por-que)" }}>
 
-            {/* Tab bar: motion.div slides between tab positions */}
             <div className="flex w-full">
               {TAB_CONTENT.map((_, i) => (
                 <div key={i} className="relative flex-1 h-10 md:h-12">
@@ -125,7 +115,6 @@ function GooeyPorQueTabs() {
               ))}
             </div>
 
-            {/* Content panel — shares the same background as active tab for seamless gooey merge */}
             <div
               className="w-full h-[270px] sm:h-[300px] md:h-[330px] overflow-hidden"
               style={{ backgroundColor: "#4b528a" }}
@@ -139,7 +128,6 @@ function GooeyPorQueTabs() {
                   transition={{ duration: 0.22, ease: "easeOut" }}
                   className="p-6 md:p-10"
                 >
-                  {/* Number badge */}
                   <span
                     className="text-[10px] font-mono tracking-widest px-3 py-1 rounded-full border inline-block mb-5"
                     style={{ color: current.color, borderColor: `${current.color}44` }}
@@ -147,12 +135,10 @@ function GooeyPorQueTabs() {
                     /{current.numero}
                   </span>
 
-                  {/* Heading */}
                   <h3 className="text-xl md:text-2xl font-bold text-white font-heading mb-5">
                     {current.heading}
                   </h3>
 
-                  {/* Bullet points */}
                   <ul className="space-y-0">
                     {current.points.map((point, i) => (
                       <li
@@ -175,11 +161,6 @@ function GooeyPorQueTabs() {
             </div>
           </div>
 
-          {/*
-            Layer 2 — text labels without filter.
-            Absolutely positioned over the tab bar so text stays crisp
-            (gooey filter would blur the text if applied here).
-          */}
           <div className="absolute top-0 left-0 right-0 h-10 md:h-12 flex z-10">
             {TAB_CONTENT.map((tab, i) => (
               <button
@@ -199,7 +180,6 @@ function GooeyPorQueTabs() {
           </div>
         </div>
 
-        {/* CTA */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <p className="text-[#7d84b2] text-sm">
             ¿Lista para dar el primer paso hacia tu recuperación?
