@@ -40,21 +40,12 @@ const slidesData = [
   },
 ];
 
-// ── Grid pattern para la columna derecha ───────────────────────────────────
-const gridStyle: React.CSSProperties = {
-  backgroundImage: `
-    linear-gradient(to right,  rgba(103,197,212,0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(103,197,212,0.06) 1px, transparent 1px)
-  `,
-  backgroundSize: "3.5rem 3.5rem",
-};
-
 // ── Main component ─────────────────────────────────────────────────────────
 export function ScrollingFeatureShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Detecta el slide activo según el scroll de la PÁGINA (no scroll interno)
+  // Detecta el slide activo según el scroll de la PÁGINA
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
@@ -67,17 +58,17 @@ export function ScrollingFeatureShowcase() {
       const progress  = scrolled / totalScroll;
       const nextIndex = Math.min(
         slidesData.length - 1,
-        Math.floor(progress * slidesData.length)
+        Math.floor(progress * slidesData.length),
       );
       setActiveIndex(nextIndex);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // cálculo inicial
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scroll programático al hacer clic en un dot/bar de paginación
+  // Scroll programático al hacer clic en paginación
   const scrollToSlide = (index: number) => {
     if (!containerRef.current) return;
     const top    = containerRef.current.offsetTop;
@@ -89,19 +80,37 @@ export function ScrollingFeatureShowcase() {
   const current = slidesData[activeIndex];
 
   return (
-    // El contenedor ocupa n × 100vh en el flujo normal de la página
     <div ref={containerRef} style={{ height: `${slidesData.length * 100}vh` }}>
 
       <div
-        className="sticky top-0 h-screen w-full"
+        className="sticky top-0 h-screen w-full overflow-hidden"
         style={{
           backgroundColor: current.bgColor,
           transition:       "background-color 0.7s ease",
         }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 h-full w-full max-w-7xl mx-auto">
+        {/* ── Capas de fondo con fade-in/out (mobile y desktop) ───────── */}
+        {slidesData.map((slide, i) => (
+          <div
+            key={i}
+            className="absolute inset-0"
+            style={{
+              backgroundImage:    `url(${slide.image})`,
+              backgroundSize:     "cover",
+              backgroundPosition: "center",
+              opacity:            i === activeIndex ? 0.28 : 0,
+              transition:         "opacity 0.7s ease",
+            }}
+          />
+        ))}
+        {/* Overlay para garantizar legibilidad del texto */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
 
-          <div className="relative flex flex-col justify-center px-8 md:px-16 border-r border-white/10">
+        {/* ── Grid principal ─────────────────────────────────────────────── */}
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 h-full w-full max-w-7xl mx-auto">
+
+          {/* Columna izquierda — texto */}
+          <div className="relative flex flex-col justify-center px-8 md:px-16">
 
             <div className="absolute top-12 left-8 md:left-16">
               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7d84b2] mb-4">
@@ -139,8 +148,8 @@ export function ScrollingFeatureShowcase() {
                   <span
                     className="text-[10px] font-mono tracking-widest px-3 py-1 rounded-full border inline-block mb-6"
                     style={{
-                      color:        slide.accentColor,
-                      borderColor:  `${slide.accentColor}33`,
+                      color:       slide.accentColor,
+                      borderColor: `${slide.accentColor}33`,
                     }}
                   >
                     /{slide.number}
@@ -186,51 +195,6 @@ export function ScrollingFeatureShowcase() {
             </div>
           </div>
 
-          <div
-            className="hidden md:flex items-center justify-center p-8"
-            style={gridStyle}
-          >
-            <div className="relative w-[55%] h-[80vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-              <div
-                className="absolute top-0 left-0 w-full h-full"
-                style={{
-                  transform:  `translateY(-${activeIndex * 100}%)`,
-                  transition: "transform 0.7s ease-in-out",
-                }}
-              >
-                {slidesData.map((slide, i) => (
-                  <div key={i} className="w-full h-full">
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      className="h-full w-full object-cover"
-                      loading={i === 0 ? "eager" : "lazy"}
-                    />
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent" />
-                  </div>
-                ))}
-              </div>
-
-              <div className="absolute bottom-5 right-5 flex flex-col gap-2 z-10">
-                {slidesData.map((slide, i) => (
-                  <button
-                    key={i}
-                    onClick={() => scrollToSlide(i)}
-                    aria-label={`Ir a ${slide.title}`}
-                    className="rounded-full transition-all duration-300"
-                    style={{
-                      width:           "6px",
-                      height:          i === activeIndex ? "20px" : "6px",
-                      backgroundColor:
-                        i === activeIndex
-                          ? slide.accentColor
-                          : "rgba(255,255,255,0.3)",
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

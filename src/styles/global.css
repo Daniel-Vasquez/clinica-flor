@@ -41,3 +41,219 @@
   }
 
 }
+
+/* ═══════════════════════════════════════════════════════════
+   LIGHT MODE  ·  class="light" on <html>
+   Todas las secciones cambian a fondo claro.
+   Los paneles sticky del scrolling showcase mantienen su bg
+   propio (inline style) y actúan como islas de contraste.
+═══════════════════════════════════════════════════════════ */
+
+html.light body {
+  background-color: #f2f0fc;
+  color: #1a1830;
+}
+
+/* ── Hero (#inicio) ──────────────────────────────────────── */
+
+html.light #inicio {
+  background-color: #f2f0fc !important;
+}
+
+/* Reduce la opacidad de la imagen de fondo para que quede sutil sobre fondo claro */
+html.light #inicio [style*="hero-bg"] {
+  opacity: 0.1 !important;
+}
+
+/* Texto principal heredado */
+html.light #inicio.text-white {
+  color: #1a1830 !important;
+}
+
+html.light #inicio .text-white,
+html.light #inicio .text-white\/85 {
+  color: #1a1830 !important;
+}
+
+html.light #inicio .text-\[\#7d84b2\] {
+  color: #4b528a !important;
+}
+
+/* Cards glassmorphism */
+html.light #inicio .bg-\[\#4b528a\]\/20 {
+  background-color: rgba(75, 82, 138, 0.08) !important;
+}
+
+html.light #inicio .border-\[\#4b528a\]\/50 {
+  border-color: rgba(75, 82, 138, 0.2) !important;
+}
+
+/* Divisores y barra de progreso */
+html.light #inicio .bg-\[\#4b528a\]\/60 {
+  background-color: rgba(75, 82, 138, 0.16) !important;
+}
+
+/* Botón secundario "Ver padecimientos" */
+html.light #inicio .border-white\/15 {
+  border-color: rgba(39, 37, 56, 0.14) !important;
+}
+
+html.light #inicio .bg-white\/5 {
+  background-color: rgba(39, 37, 56, 0.04) !important;
+}
+
+/* ── Smooth transition on theme switch ───────────────────── */
+html.theme-transitioning,
+html.theme-transitioning * {
+  transition:
+    background-color 0.3s ease,
+    color            0.25s ease,
+    border-color     0.25s ease !important;
+}
+
+/* ── Section backgrounds (Tailwind classes) ──────────────── */
+html.light .bg-brand-navy,
+html.light .bg-\[\#272538\] {
+  background-color: #f2f0fc !important;
+}
+
+/* ── Sections with inline style background ───────────────── */
+html.light #clinica,
+html.light #proceso,
+html.light #contacto {
+  background-color: #ffffff !important;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+html.light footer {
+  background-color: #ffffff !important;
+  border-top-color: rgba(75, 82, 138, 0.18) !important;
+}
+
+/* ── Padecimientos: bio sub-section (below scrolling panels) */
+html.light #padecimientos .bg-brand-navy {
+  background-color: #f2f0fc !important;
+}
+
+/* ── Text colors (scoped to sections that go light) ──────── */
+html.light #clinica .text-white,
+html.light #proceso .text-white,
+html.light #faq .text-white,
+html.light #contacto .text-white,
+html.light footer .text-white,
+html.light #padecimientos .bg-brand-navy .text-white,
+html.light #por-que > div.max-w-7xl .text-white {
+  color: #1a1830 !important;
+}
+
+/* Restore accent color on FAQ open state */
+html.light #faq details[open] summary h3 {
+  color: #67c5d4 !important;
+}
+
+html.light #faq details[open] summary span {
+  color: #67c5d4 !important;
+  border-color: #67c5d4 !important;
+}
+
+html.light #clinica .text-\[\#7d84b2\],
+html.light #proceso .text-\[\#7d84b2\],
+html.light #faq .text-\[\#7d84b2\],
+html.light #contacto .text-\[\#7d84b2\],
+html.light footer .text-\[\#7d84b2\],
+html.light #padecimientos .bg-brand-navy .text-\[\#7d84b2\],
+html.light #por-que > div.max-w-7xl .text-\[\#7d84b2\] {
+  color: #4b528a !important;
+}
+
+html.light #clinica .text-\[\#4b528a\],
+html.light #proceso .text-\[\#4b528a\],
+html.light #contacto .text-\[\#4b528a\],
+html.light footer .text-\[\#4b528a\] {
+  color: #5b6399 !important;
+}
+
+/* ── Card / panel backgrounds ────────────────────────────── */
+html.light #clinica .bg-\[\#4b528a\]\/25,
+html.light #clinica .bg-\[\#4b528a\]\/30,
+html.light #contacto .bg-\[\#4b528a\]\/20,
+html.light #contacto .bg-\[\#4b528a\]\/30,
+html.light footer .bg-\[\#4b528a\]\/30 {
+  background-color: rgba(75, 82, 138, 0.07) !important;
+}
+
+html.light #clinica .bg-\[\#272538\]\/60 {
+  background-color: rgba(242, 240, 252, 0.8) !important;
+}
+
+/* Gradient cards → flat light version */
+html.light #padecimientos .bg-brand-navy .bg-gradient-to-br,
+html.light #clinica .bg-gradient-to-br,
+html.light #clinica .bg-gradient-to-r {
+  background: rgba(75, 82, 138, 0.06) !important;
+}
+
+/* ── Borders ─────────────────────────────────────────────── */
+html.light #clinica .border-\[\#4b528a\]\/40,
+html.light #clinica .border-\[\#4b528a\]\/50,
+html.light #contacto .border-\[\#4b528a\]\/50,
+html.light footer .border-\[\#4b528a\]\/40,
+html.light footer .border-\[\#4b528a\]\/50 {
+  border-color: rgba(75, 82, 138, 0.2) !important;
+}
+
+html.light #faq .border-\[\#4b528a\] {
+  border-color: rgba(75, 82, 138, 0.25) !important;
+}
+
+html.light #proceso .divide-\[\#4b528a\]\/35 > :not([hidden]) ~ :not([hidden]),
+html.light #faq .divide-\[\#4b528a\]\/40 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(75, 82, 138, 0.15) !important;
+}
+
+html.light footer .border-t {
+  border-top-color: rgba(75, 82, 138, 0.15) !important;
+}
+
+/* ── Ring offset ─────────────────────────────────────────── */
+html.light .ring-offset-\[\#272538\] {
+  --tw-ring-offset-color: #f2f0fc;
+}
+
+html.light .ring-offset-\[\#1e1c2e\] {
+  --tw-ring-offset-color: #ffffff;
+}
+
+/* ── btn-outline in light sections ───────────────────────── */
+html.light #padecimientos .btn-outline,
+html.light #faq .btn-outline,
+html.light #proceso .btn-outline {
+  border-color: rgba(39, 37, 56, 0.22) !important;
+  color: #1a1830 !important;
+}
+
+html.light #padecimientos .btn-outline:hover,
+html.light #faq .btn-outline:hover,
+html.light #proceso .btn-outline:hover {
+  background-color: rgba(39, 37, 56, 0.05) !important;
+}
+
+/* ── Contact form fields ─────────────────────────────────── */
+html.light .field-label {
+  color: #4b528a !important;
+}
+
+html.light .field-input {
+  background-color: rgba(75, 82, 138, 0.07) !important;
+  border-color:     rgba(75, 82, 138, 0.22) !important;
+  color:            #1a1830 !important;
+}
+
+html.light .field-input::placeholder {
+  color: rgba(75, 82, 138, 0.5) !important;
+}
+
+html.light select.field-input option {
+  background-color: #ffffff;
+  color:            #1a1830;
+}
