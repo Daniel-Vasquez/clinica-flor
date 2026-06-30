@@ -3,7 +3,12 @@
     "allow": [
       "WebFetch(domain:wibify.agency)",
       "Bash(npm install *)",
-      "Bash(npx astro *)"
+      "Bash(npx astro *)",
+      "Skill(run)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
+      "Bash(chromium-cli screenshot *)",
+      "Bash(npx playwright *)"
     ]
   }
 }
