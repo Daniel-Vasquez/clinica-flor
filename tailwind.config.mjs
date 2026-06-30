@@ -25,8 +25,8 @@ export default {
         card:         { DEFAULT: '#1e1c2e', foreground: '#ffffff' },
       },
       fontFamily: {
-        sans:    ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Syne', 'system-ui', 'sans-serif'],
+        sans:    ['Sarabun', 'system-ui', 'sans-serif'],
+        heading: ['Baskervville', 'Georgia', 'serif'],
       },
       keyframes: {
         fadeUp: {

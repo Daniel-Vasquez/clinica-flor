@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Sarabun:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -11,11 +11,11 @@
 
   body {
     @apply bg-brand-navy text-white antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Sarabun', system-ui, sans-serif;
   }
 
-  h1, h2, h3, h4, h5 {
-    font-family: 'Syne', system-ui, sans-serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Baskervville', Georgia, serif;
   }
 
   details summary::-webkit-details-marker {
