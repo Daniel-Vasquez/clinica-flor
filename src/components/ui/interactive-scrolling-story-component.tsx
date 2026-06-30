@@ -11,8 +11,7 @@ const slidesData = [
     subtitle:    "También conocidas como almorranas",
     description:
       "Las hemorroides son venas inflamadas en el recto o el ano. Pueden causar dolor, sangrado y molestia, pero con el tratamiento adecuado se resuelven de forma efectiva sin necesidad de cirugía en la mayoría de los casos.",
-    image:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&q=80&auto=format&fit=crop",
+    image: "public/images/padecimientos/padecimiento-hemorroides.jpeg",
     bgColor:     "#272538",
     accentColor: "#67c5d4",
   },
@@ -23,7 +22,7 @@ const slidesData = [
     description:
       "Es una herida en la piel perianal producida por trauma anal que genera dolor intenso durante y después de evacuar. Con manejo médico adecuado se puede cicatrizar sin necesidad de cirugía en la mayoría de los casos.",
     image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80&auto=format&fit=crop",
+      "public/images/padecimientos/predecimiento-fistula-anal.jpeg",
     bgColor:     "#1e1c2e",
     accentColor: "#EF999E",
   },
@@ -34,7 +33,7 @@ const slidesData = [
     description:
       "Comunicación anormal entre la piel perianal y el ano que genera secreción constante y molestia. Requiere diagnóstico preciso y tratamiento especializado para su resolución definitiva y definitiva prevención de recidivas.",
     image:
-      "https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=900&q=80&auto=format&fit=crop",
+      "public/images/padecimientos/predecimiento-fisuras-anales.jpeg",
     bgColor:     "#272538",
     accentColor: "#67c5d4",
   },

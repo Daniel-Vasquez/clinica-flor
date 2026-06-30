@@ -61,7 +61,7 @@ export default function Navbar() {
     ? isLight
       ? 'bg-white/95 backdrop-blur-md border-b border-[#4b528a]/20 py-3'
       : 'bg-[#272538]/95 backdrop-blur-md border-b border-[#4b528a]/40 py-3'
-    : 'bg-transparent py-6';
+    : 'bg-transparent';
 
   /* When not scrolled the header is over the always-dark hero → keep light text */
   const linkClass = scrolled && isLight
@@ -82,9 +82,9 @@ export default function Navbar() {
             <img
               src="/images/logo.png"
               alt="Clínica Flor — Dra. Flor Moreno"
-              className="h-8 w-auto"
-              width={120}
-              height={32}
+              className="h-24 w-auto"
+              width="120"
+              height="32"
             />
           </a>
 
