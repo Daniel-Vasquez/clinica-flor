@@ -9,24 +9,20 @@ import {
   Stethoscope,
   Building2,
   BadgeCheck,
-  HeartPulse,
-  CalendarCheck,
 } from "lucide-react";
 
 const DOCTORALIA =
   "https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar";
 
-// ── Marquee items ──────────────────────────────────────────
 const TRUSTED = [
-  { name: "San Ángel Inn Patriotismo", icon: Building2    },
-  { name: "Star Médica Luna Parc",     icon: Building2    },
-  { name: "Doctoralia ★★★★★",         icon: Star         },
-  { name: "12+ Años de experiencia",   icon: Award        },
-  { name: "Coloproctología CDMX",      icon: Activity     },
-  { name: "Médico certificado",        icon: BadgeCheck   },
+  { name: "San Ángel Inn Patriotismo", icon: Building2  },
+  { name: "Star Médica Luna Parc",     icon: Building2  },
+  { name: "Doctoralia ★★★★★",         icon: Star       },
+  { name: "12+ Años de experiencia",   icon: Award      },
+  { name: "Coloproctología CDMX",      icon: Activity   },
+  { name: "Médico certificado",        icon: BadgeCheck },
 ];
 
-// ── Sub-component ──────────────────────────────────────────
 const StatItem = ({ value, label }: { value: string; label: string }) => (
   <div className="flex flex-col items-center justify-center transition-transform hover:-translate-y-1 cursor-default">
     <span className="text-xl font-bold text-white sm:text-2xl">{value}</span>
@@ -36,7 +32,6 @@ const StatItem = ({ value, label }: { value: string; label: string }) => (
   </div>
 );
 
-// ── Main component ─────────────────────────────────────────
 export default function GlassmorphismTrustHero() {
   return (
     <div
@@ -46,21 +41,27 @@ export default function GlassmorphismTrustHero() {
     >
       <style>{`
         @keyframes gthFadeSlideIn {
-          from { opacity: 0; transform: translateY(20px); }
+          from { opacity: 0; transform: translateY(28px); }
           to   { opacity: 1; transform: translateY(0); }
         }
         @keyframes gthMarquee {
           from { transform: translateX(0); }
           to   { transform: translateX(-50%); }
         }
-        .gth-fade { animation: gthFadeSlideIn 0.8s ease-out forwards; opacity: 0; }
-        .gth-marquee { animation: gthMarquee 45s linear infinite; }
-        .gth-d1 { animation-delay: 0.10s; }
-        .gth-d2 { animation-delay: 0.22s; }
-        .gth-d3 { animation-delay: 0.36s; }
-        .gth-d4 { animation-delay: 0.50s; }
-        .gth-d5 { animation-delay: 0.62s; }
+        .gth-fade { animation: gthFadeSlideIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; opacity: 0; }
+        .gth-marquee { animation: gthMarquee 55s linear infinite; }
+        .gth-d1 { animation-delay: 0.12s; }
+        .gth-d2 { animation-delay: 0.28s; }
+        .gth-d3 { animation-delay: 0.45s; }
+        .gth-d4 { animation-delay: 0.62s; }
+        .gth-d5 { animation-delay: 0.78s; }
       `}</style>
+
+      {/* Decorative organic blobs */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] -translate-y-1/3 translate-x-1/4 rounded-full bg-[#EF999E]/[0.05] blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] translate-y-1/4 -translate-x-1/4 rounded-full bg-[#67c5d4]/[0.05] blur-[100px]" />
+      </div>
 
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
@@ -74,13 +75,13 @@ export default function GlassmorphismTrustHero() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-28 pb-12 sm:px-6 md:pt-36 md:pb-20 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8 items-start">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-36 pb-16 sm:px-6 md:pt-48 md:pb-28 lg:px-8">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-10 items-start">
 
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-8 pt-4">
+          <div className="lg:col-span-7 flex flex-col justify-center space-y-10 pt-4">
 
             <div className="gth-fade gth-d1">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#67c5d4]/30 bg-[#67c5d4]/10 px-4 py-1.5 backdrop-blur-md hover:bg-[#67c5d4]/15 transition-colors">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#67c5d4]/30 bg-[#67c5d4]/10 px-4 py-1.5 backdrop-blur-md hover:bg-[#67c5d4]/15 transition-colors duration-500 ease-in-out">
                 <span className="relative flex h-2 w-2 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#67c5d4] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#67c5d4]" />
@@ -92,7 +93,7 @@ export default function GlassmorphismTrustHero() {
             </div>
 
             <h1
-              className="gth-fade gth-d2 font-heading font-bold tracking-tight leading-[1.04]"
+              className="gth-fade gth-d2 font-heading tracking-tight leading-[1.08]"
               style={{
                 fontSize: "clamp(2.8rem, 6.5vw, 5.5rem)",
                 maskImage:
@@ -117,31 +118,31 @@ export default function GlassmorphismTrustHero() {
               ¡importante!
             </h1>
 
-            <p className="gth-fade gth-d3 max-w-xl text-lg text-[#7d84b2] leading-relaxed">
+            <p className="gth-fade gth-d3 max-w-xl text-lg text-[#7d84b2] leading-loose">
               A través de buenos hábitos alimenticios y un tratamiento adecuado
               podemos evitar complicaciones o cirugías, que te permitan recuperar tu{" "}
               <strong className="text-white/85 font-medium">salud colorrectal.</strong>
             </p>
 
-            <div className="gth-fade gth-d4 flex flex-col sm:flex-row gap-4">
+            <div className="gth-fade gth-d4 flex flex-col sm:flex-row gap-5">
               <a
                 href={DOCTORALIA}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-full
-                           bg-[#67c5d4] px-8 py-4 text-sm font-bold text-[#272538]
-                           transition-all hover:scale-[1.02] hover:bg-[#67c5d4]/90
-                           active:scale-[0.98]"
+                           bg-[#67c5d4] px-9 py-4 text-sm font-bold text-[#272538]
+                           transition-all duration-500 ease-in-out hover:scale-[1.02] hover:bg-[#67c5d4]/90
+                           hover:shadow-[0_8px_32px_rgba(103,197,212,0.35)] active:scale-[0.98]"
               >
                 ¡Agenda tu cita ahora!
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
 
               <a
                 href="#padecimientos"
                 className="group inline-flex items-center justify-center gap-2 rounded-full
-                           border border-white/15 bg-white/5 px-8 py-4 text-sm font-semibold
-                           text-white backdrop-blur-sm transition-colors
+                           border border-white/15 bg-white/5 px-9 py-4 text-sm font-semibold
+                           text-white backdrop-blur-sm transition-all duration-500 ease-in-out
                            hover:bg-white/10 hover:border-white/25"
               >
                 <Play className="w-4 h-4 fill-current" />
@@ -152,13 +153,14 @@ export default function GlassmorphismTrustHero() {
 
           <div className="lg:col-span-5 space-y-6 lg:mt-10">
 
-            <div className="gth-fade gth-d5 relative overflow-hidden rounded-3xl border border-[#4b528a]/50 bg-[#4b528a]/20 p-8 backdrop-blur-xl shadow-2xl">
-              <div className="absolute top-0 right-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-[#67c5d4]/6 blur-3xl pointer-events-none" />
+            <div className="gth-fade gth-d5 relative overflow-hidden rounded-3xl border border-[#4b528a]/50 bg-[#4b528a]/20 p-10 backdrop-blur-xl shadow-2xl">
+              <div className="absolute top-0 right-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-[#67c5d4]/[0.06] blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 -ml-12 -mb-12 h-48 w-48 rounded-full bg-[#EF999E]/[0.05] blur-3xl pointer-events-none" />
 
               <div className="relative z-10">
 
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#67c5d4]/15 ring-1 ring-[#67c5d4]/30">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-[#67c5d4]/15 ring-1 ring-[#67c5d4]/30">
                     <Stethoscope className="h-6 w-6 text-[#67c5d4]" />
                   </div>
                   <div>
@@ -176,8 +178,7 @@ export default function GlassmorphismTrustHero() {
                     <div
                       className="h-full w-[98%] rounded-full"
                       style={{
-                        backgroundImage:
-                          "linear-gradient(to right, #67c5d4, #4b528a)",
+                        backgroundImage: "linear-gradient(to right, #67c5d4, #EF999E)",
                       }}
                     />
                   </div>
@@ -234,7 +235,7 @@ export default function GlassmorphismTrustHero() {
                     <div
                       key={i}
                       className="flex items-center gap-2 opacity-50 hover:opacity-100
-                                 hover:scale-105 cursor-default transition-all duration-200"
+                                 hover:scale-105 cursor-default transition-all duration-500 ease-in-out"
                     >
                       <item.icon className="h-5 w-5 text-[#67c5d4]" />
                       <span className="text-base font-bold text-white tracking-tight">

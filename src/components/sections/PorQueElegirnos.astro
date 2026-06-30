@@ -3,19 +3,31 @@
 import GooeyPorQueTabs from '../ui/gooey-por-que-tabs';
 ---
 
-<section id="por-que" class="bg-brand-navy pt-24 md:pt-32 pb-0 scroll-mt-20">
+<section id="por-que" class="bg-brand-navy pt-32 md:pt-44 pb-0 scroll-mt-20 relative overflow-hidden">
 
-  <!-- Header (estático en Astro, animado con GSAP) -->
-  <div class="max-w-7xl mx-auto px-6 lg:px-12 mb-16" data-anim="header">
+  <!-- Blobs decorativos orgánicos -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute -top-40 right-0 w-[700px] h-[700px] rounded-full bg-[#EF999E]/[0.04] blur-[130px]"></div>
+    <div class="absolute bottom-0 -left-40 w-[500px] h-[500px] rounded-full bg-[#67c5d4]/[0.03] blur-[100px]"></div>
+  </div>
+
+  <!-- Header -->
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-12 mb-24" data-anim="header">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div>
-        <h2 class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl">
+        <!-- Ornamento -->
+        <div class="flex items-center gap-3 mb-5">
+          <div class="h-px w-10 bg-[#EF999E]/50"></div>
+          <div class="w-1.5 h-1.5 rounded-full bg-[#EF999E]/70"></div>
+          <div class="h-px w-10 bg-[#EF999E]/50"></div>
+        </div>
+        <h2 class="font-heading text-white text-4xl md:text-5xl lg:text-6xl">
           ¿Por qué elegir a la
-          <em class="not-italic text-[#EF999E]">Dra. Flor?</em>
+          <em class="text-[#EF999E]">Dra. Flor?</em>
         </h2>
       </div>
       <div class="flex items-end">
-        <p class="text-[#7d84b2] text-lg leading-relaxed">
+        <p class="text-[#7d84b2] text-lg leading-loose">
           Tu bienestar merece un especialista de confianza. Estos son los valores
           que guían cada consulta y cada tratamiento.
         </p>
@@ -23,7 +35,7 @@ import GooeyPorQueTabs from '../ui/gooey-por-que-tabs';
     </div>
   </div>
 
-  <!-- Gooey tabs React (client:load para hidratación inmediata) -->
+  <!-- Gooey tabs React -->
   <GooeyPorQueTabs client:load />
 
 </section>

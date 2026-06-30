@@ -3,14 +3,26 @@ const DOCTORALIA =
   'https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar';
 ---
 
-<section id="contacto" class="py-24 md:py-36" style="background-color: #1e1c2e;">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+<section id="contacto" class="py-32 md:py-44 relative overflow-hidden" style="background-color: #f2f0fc;">
+  <!-- Blobs decorativos suaves en light -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full bg-[#EF999E]/[0.07] blur-[120px]"></div>
+    <div class="absolute bottom-0 -left-40 w-[500px] h-[500px] rounded-full bg-[#67c5d4]/[0.06] blur-[100px]"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
 
     <!-- Header -->
-    <div class="mb-16" data-anim="header">
-      <h2 class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl">
+    <div class="mb-20" data-anim="header">
+      <!-- Ornamento -->
+      <div class="flex items-center gap-3 mb-5">
+        <div class="h-px w-10 bg-[#EF999E]/50"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#EF999E]/70"></div>
+        <div class="h-px w-10 bg-[#EF999E]/50"></div>
+      </div>
+      <h2 class="font-heading text-[#1a1830] text-4xl md:text-5xl lg:text-6xl">
         ¡Da el primer paso<br />
-        <em class="not-italic text-[#EF999E]">hacia tu bienestar!</em>
+        <em class="text-[#EF999E]">hacia tu bienestar!</em>
       </h2>
     </div>
 
@@ -18,7 +30,7 @@ const DOCTORALIA =
 
       <!-- Izquierda: info de contacto -->
       <div data-anim="left">
-        <p class="text-[#7d84b2] text-lg leading-relaxed mb-10">
+        <p class="text-[#4b528a] text-lg leading-loose mb-10">
           Agenda tu cita en línea a través de Doctoralia o envíanos un mensaje.
           Respondemos en menos de 24 horas con orientación personalizada.
         </p>
@@ -33,38 +45,38 @@ const DOCTORALIA =
         </a>
 
         <div class="space-y-4 mb-10">
-          <p class="text-[#7d84b2] text-xs uppercase tracking-widest font-semibold">
+          <p class="text-[#4b528a] text-xs uppercase tracking-widest font-semibold">
             Consultorios disponibles en:
           </p>
 
           <div class="flex items-start gap-3">
             <span class="text-[#67c5d4] mt-0.5 shrink-0">🏥</span>
             <div>
-              <p class="text-white text-sm font-semibold">Hospital San Ángel Inn Patriotismo</p>
-              <p class="text-[#7d84b2] text-xs">Ciudad de México</p>
+              <p class="text-[#1a1830] text-sm font-semibold">Hospital San Ángel Inn Patriotismo</p>
+              <p class="text-[#4b528a] text-xs">Ciudad de México</p>
             </div>
           </div>
 
           <div class="flex items-start gap-3">
             <span class="text-[#67c5d4] mt-0.5 shrink-0">🏥</span>
             <div>
-              <p class="text-white text-sm font-semibold">Hospital Star Médica Luna Parc</p>
-              <p class="text-[#7d84b2] text-xs">Ciudad de México</p>
+              <p class="text-[#1a1830] text-sm font-semibold">Hospital Star Médica Luna Parc</p>
+              <p class="text-[#4b528a] text-xs">Ciudad de México</p>
             </div>
           </div>
         </div>
 
         <div class="flex items-center gap-3">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-          <p class="text-[#7d84b2] text-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+          <p class="text-[#4b528a] text-sm">
             Agenda en línea disponible 24/7 · Confirmación inmediata
           </p>
         </div>
       </div>
 
       <!-- Derecha: formulario -->
-      <form data-anim="right" class="space-y-5" action="#" method="POST">
-        <div class="grid grid-cols-2 gap-4">
+      <form data-anim="right" class="space-y-6" action="#" method="POST">
+        <div class="grid grid-cols-2 gap-5">
           <div>
             <label for="nombre" class="field-label">Nombre</label>
             <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required class="field-input" />
@@ -75,7 +87,7 @@ const DOCTORALIA =
           </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-5">
           <div>
             <label for="email" class="field-label">Correo electrónico</label>
             <input id="email" name="email" type="email" placeholder="tu@correo.com" required class="field-input" />
@@ -88,20 +100,20 @@ const DOCTORALIA =
 
         <div>
           <label for="padecimiento" class="field-label">
-            Motivo de consulta&nbsp;<span class="text-[#4b528a] normal-case font-normal">(opcional)</span>
+            Motivo de consulta&nbsp;<span class="text-[#7d84b2] normal-case font-normal">(opcional)</span>
           </label>
           <select id="padecimiento" name="padecimiento" class="field-input">
-            <option value=""           class="bg-[#272538]">Selecciona un padecimiento…</option>
-            <option value="hemorroides" class="bg-[#272538]">Hemorroides</option>
-            <option value="fisuras"     class="bg-[#272538]">Fisuras anales</option>
-            <option value="fistula"     class="bg-[#272538]">Fístula anal</option>
-            <option value="otro"        class="bg-[#272538]">Otro / No lo sé</option>
+            <option value="">Selecciona un padecimiento…</option>
+            <option value="hemorroides">Hemorroides</option>
+            <option value="fisuras">Fisuras anales</option>
+            <option value="fistula">Fístula anal</option>
+            <option value="otro">Otro / No lo sé</option>
           </select>
         </div>
 
         <div>
           <label for="mensaje" class="field-label">
-            Mensaje&nbsp;<span class="text-[#4b528a] normal-case font-normal">(opcional)</span>
+            Mensaje&nbsp;<span class="text-[#7d84b2] normal-case font-normal">(opcional)</span>
           </label>
           <textarea
             id="mensaje"
@@ -114,9 +126,9 @@ const DOCTORALIA =
 
         <div class="flex items-start gap-3 pt-1">
           <input id="privacidad" name="privacidad" type="checkbox" required class="mt-0.5 w-4 h-4 rounded accent-[#67c5d4] shrink-0" />
-          <label for="privacidad" class="text-[#7d84b2] text-xs leading-relaxed">
+          <label for="privacidad" class="text-[#4b528a] text-xs leading-relaxed">
             Acepto el
-            <a href="/privacidad" class="text-[#67c5d4] hover:underline">aviso de privacidad</a>
+            <a href="/privacidad" class="text-[#67c5d4] hover:underline transition-colors duration-300">aviso de privacidad</a>
             y consiento el uso de mis datos para atender mi solicitud.
           </label>
         </div>
@@ -131,13 +143,13 @@ const DOCTORALIA =
 
 <style>
   .field-label {
-    @apply block text-[#7d84b2] text-[10px] uppercase tracking-widest mb-2 font-semibold;
+    @apply block text-[#4b528a] text-[10px] uppercase tracking-widest mb-2 font-semibold;
   }
 
   .field-input {
-    @apply w-full bg-[#4b528a]/20 border border-[#4b528a]/50 rounded-xl
-           px-4 py-3 text-white text-sm placeholder-[#4b528a]
-           focus:outline-none focus:border-[#67c5d4] focus:bg-[#4b528a]/30
-           transition-colors duration-200;
+    @apply w-full bg-white border border-[#4b528a]/30 rounded-2xl
+           px-5 py-3.5 text-[#1a1830] text-sm placeholder-[#7d84b2]
+           focus:outline-none focus:border-[#67c5d4] focus:bg-white
+           transition-all duration-500 ease-in-out;
   }
 </style>

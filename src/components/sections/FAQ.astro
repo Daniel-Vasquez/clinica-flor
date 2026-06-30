@@ -32,43 +32,55 @@ const faqs: FAQItem[] = [
 ];
 ---
 
-<section id="faq" class="py-24 md:py-36 bg-brand-navy">
-  <div class="max-w-3xl mx-auto px-6 lg:px-0">
+<section id="faq" class="py-32 md:py-44 bg-brand-navy relative overflow-hidden">
+  <!-- Blobs decorativos -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-[#EF999E]/[0.04] blur-[120px]"></div>
+    <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#67c5d4]/[0.04] blur-[100px]"></div>
+  </div>
+
+  <div class="relative max-w-3xl mx-auto px-6 lg:px-0">
 
     <!-- Header -->
-    <div class="mb-16" data-anim="header">
-      <h2 class="font-heading font-bold text-white text-4xl md:text-5xl lg:text-6xl">
+    <div class="mb-24" data-anim="header">
+      <!-- Ornamento -->
+      <div class="flex items-center gap-3 mb-5">
+        <div class="h-px w-10 bg-[#EF999E]/50"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#EF999E]/70"></div>
+        <div class="h-px w-10 bg-[#EF999E]/50"></div>
+      </div>
+      <h2 class="font-heading text-white text-4xl md:text-5xl lg:text-6xl">
         Preguntas<br />
-        <em class="not-italic text-[#67c5d4]">frecuentes.</em>
+        <em class="text-[#67c5d4]">frecuentes.</em>
       </h2>
-      <p class="text-[#7d84b2] text-base mt-4 max-w-md">
+      <p class="text-[#7d84b2] text-base mt-5 max-w-md leading-loose">
         Resolvemos las dudas más comunes de nuestros pacientes antes de su primera visita.
       </p>
     </div>
 
-    <!-- Acordeón — cada item se anima en cascada al entrar al viewport -->
+    <!-- Acordeón -->
     <div class="divide-y divide-[#4b528a]/40">
       {faqs.map((faq) => (
-        <details data-anim="faq" class="group py-7 cursor-pointer">
+        <details data-anim="faq" class="group py-9 cursor-pointer">
           <summary class="flex items-center justify-between gap-6 list-none select-none">
             <h3
-              class="font-heading font-bold text-lg md:text-xl text-white
-                     group-open:text-[#67c5d4] transition-colors duration-200 text-left"
+              class="font-heading text-lg md:text-xl text-white
+                     group-open:text-[#67c5d4] transition-colors duration-500 ease-in-out text-left"
             >
               {faq.pregunta}
             </h3>
             <span
-              class="shrink-0 w-8 h-8 rounded-full border border-[#4b528a]
+              class="shrink-0 w-10 h-10 rounded-full border border-[#4b528a]
                      flex items-center justify-center text-[#7d84b2] text-xl leading-none
                      group-open:border-[#67c5d4] group-open:text-[#67c5d4]
-                     group-open:rotate-45 transition-all duration-300"
+                     group-open:rotate-45 transition-all duration-500 ease-in-out"
               aria-hidden="true"
             >
               +
             </span>
           </summary>
 
-          <p class="text-[#7d84b2] text-base leading-relaxed mt-5">
+          <p class="text-[#7d84b2] text-base leading-loose mt-6">
             {faq.respuesta}
           </p>
         </details>
@@ -76,8 +88,8 @@ const faqs: FAQItem[] = [
     </div>
 
     <!-- CTA post-FAQ -->
-    <div class="mt-14 text-center" data-anim="up">
-      <p class="text-[#7d84b2] text-sm mb-5">¿Tienes más dudas? Contáctanos directamente.</p>
+    <div class="mt-20 text-center" data-anim="up">
+      <p class="text-[#7d84b2] text-sm mb-6">¿Tienes más dudas? Contáctanos directamente.</p>
       <a href="#contacto" class="btn-outline">Hacer una pregunta →</a>
     </div>
 

@@ -6,27 +6,31 @@ const DOCTORALIA =
   "https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar";
 ---
 
-<!-- id="padecimientos" para el anchor de navegación -->
 <section id="padecimientos" class="bg-[#272538]">
 
-  <!-- ── Scrolling showcase interactivo (3 × 100vh) ── -->
+  <!-- Scrolling showcase interactivo (3 × 100vh) -->
   <ScrollingFeatureShowcase client:load />
 
-  <!-- ── Bio de la Doctora (estática, debajo del showcase) ── -->
-  <div class="bg-brand-navy py-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+  <!-- Bio de la Doctora — sección LIGHT -->
+  <div class="py-28 relative overflow-hidden" style="background-color: #f2f0fc;">
+    <!-- Blobs suaves en light -->
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+      <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-[#EF999E]/[0.06] blur-[100px]"></div>
+      <div class="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full bg-[#67c5d4]/[0.06] blur-[80px]"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
       <div
         data-anim="up"
-        class="grid grid-cols-1 lg:grid-cols-[1fr,2fr] gap-10 lg:gap-16 items-center
-               bg-gradient-to-br from-[#4b528a]/30 to-[#4b528a]/10
-               border border-[#4b528a]/40 rounded-3xl p-8 md:p-12"
+        class="grid grid-cols-1 lg:grid-cols-[1fr,2fr] gap-12 lg:gap-20 items-center
+               bg-white border border-[#4b528a]/20 rounded-3xl p-10 md:p-14 shadow-sm"
       >
         <!-- Foto -->
         <div class="flex justify-center lg:justify-start">
           <div
             class="relative w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden
-                   ring-4 ring-[#67c5d4]/30 ring-offset-4 ring-offset-[#272538]
-                   bg-[#4b528a]/30"
+                   ring-4 ring-[#67c5d4]/30 ring-offset-4 ring-offset-[#f2f0fc]
+                   bg-[#4b528a]/10"
           >
             <img
               src="/flor/Dr-flor-gb-blanco-2%20Background%20Removed.webp"
@@ -39,24 +43,25 @@ const DOCTORALIA =
 
         <!-- Texto + CTAs -->
         <div>
-          <p class="text-white text-lg md:text-xl leading-relaxed mb-8 border-l-2 border-[#EF999E] pl-5">
-            Soy la <strong class="text-[#EF999E]">Dra. Flor Moreno</strong>,
+          <!-- Ornamento -->
+          <div class="flex items-center gap-3 mb-6">
+            <div class="h-px w-10 bg-[#EF999E]/50"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-[#EF999E]/70"></div>
+            <div class="h-px w-10 bg-[#EF999E]/50"></div>
+          </div>
+          <p class="text-[#1a1830] text-lg md:text-xl leading-loose mb-10 border-l-[3px] border-[#EF999E] pl-7">
+            Soy la <strong class="text-[#EF999E] font-semibold">Dra. Flor Moreno</strong>,
             especialista en Coloproctología con más de
-            <strong class="text-white">12 años de experiencia</strong>.
+            <strong class="text-[#1a1830] font-semibold">12 años de experiencia</strong>.
             Me ocupo en que mis pacientes tengan
-            <strong class="text-[#67c5d4]">resultados satisfactorios</strong>.
+            <strong class="text-[#67c5d4] font-semibold">resultados satisfactorios</strong>.
           </p>
 
-          <div class="flex flex-wrap gap-4">
-            <a
-              href={DOCTORALIA}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-primary"
-            >
+          <div class="flex flex-wrap gap-5">
+            <a href={DOCTORALIA} target="_blank" rel="noopener noreferrer" class="btn-primary">
               Agenda tu cita →
             </a>
-            <a href="#doctora" class="btn-outline">Conocer más</a>
+            <a href="#doctora" class="btn-outline-dark">Conocer más</a>
           </div>
         </div>
       </div>

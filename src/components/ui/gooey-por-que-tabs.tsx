@@ -135,13 +135,13 @@ function GooeyPorQueTabs() {
 
             <div className="flex w-full">
               {TAB_CONTENT.map((_, i) => (
-                <div key={i} className="relative flex-1 h-10 md:h-12">
+                <div key={i} className="relative flex-1 h-12 md:h-14">
                   {activeTab === i && (
                     <motion.div
                       layoutId="gooey-active-tab"
                       className="absolute inset-0"
                       style={{ backgroundColor: tabActiveBg }}
-                      transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+                      transition={{ type: "spring", bounce: 0, duration: 0.65 }}
                     />
                   )}
                 </div>
@@ -149,7 +149,7 @@ function GooeyPorQueTabs() {
             </div>
 
             <div
-              className="w-full h-[270px] sm:h-[300px] md:h-[330px] overflow-hidden"
+              className="w-full h-[300px] sm:h-[330px] md:h-[360px] overflow-hidden"
               style={{ backgroundColor: panelBg }}
             >
               <AnimatePresence mode="popLayout">
@@ -158,8 +158,8 @@ function GooeyPorQueTabs() {
                   initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
                   animate={{ opacity: 1, y: 0,  filter: "blur(0px)"  }}
                   exit={{    opacity: 0, y: -40, filter: "blur(10px)" }}
-                  transition={{ duration: 0.22, ease: "easeOut" }}
-                  className="p-6 md:p-10"
+                  transition={{ duration: 0.38, ease: "easeInOut" }}
+                  className="p-7 md:p-12"
                 >
                   <span
                     className="text-[10px] font-mono tracking-widest px-3 py-1 rounded-full border inline-block mb-5"
@@ -197,12 +197,12 @@ function GooeyPorQueTabs() {
             </div>
           </div>
 
-          <div className="absolute top-0 left-0 right-0 h-10 md:h-12 flex z-10">
+          <div className="absolute top-0 left-0 right-0 h-12 md:h-14 flex z-10">
             {TAB_CONTENT.map((tab, i) => (
               <button
                 key={i}
                 onClick={() => setActiveTab(i)}
-                className="flex-1 h-full flex items-center justify-center transition-colors duration-300"
+                className="flex-1 h-full flex items-center justify-center transition-colors duration-500 ease-in-out"
                 aria-label={tab.heading}
               >
                 <span

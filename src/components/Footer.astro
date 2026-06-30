@@ -18,21 +18,21 @@ const hospitales = [
 ---
 
 <footer class="bg-[#1e1c2e] border-t border-[#4b528a]/40">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-14 md:py-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
 
     <!-- Grid principal -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mb-20">
 
       <!-- Columna 1: marca -->
       <div>
         <img
           src="/images/logo.png"
           alt="Clínica Flor — Dra. Flor Moreno"
-          class="h-8 w-auto mb-5"
+          class="h-8 w-auto mb-6"
           width="120"
           height="32"
         />
-        <p class="text-[#7d84b2] text-sm leading-relaxed max-w-xs mb-6">
+        <p class="text-[#7d84b2] text-sm leading-loose max-w-xs mb-7">
           Especialista en Coloproctología con más de 12 años de experiencia.
           Consulta personalizada, confidencial y resultados satisfactorios.
         </p>
@@ -43,8 +43,9 @@ const hospitales = [
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 bg-[#4b528a]/30 border border-[#4b528a]/50
-                 hover:border-[#67c5d4]/50 rounded-xl px-4 py-2.5
-                 transition-all duration-200"
+                 hover:border-[#67c5d4]/50 rounded-2xl px-5 py-3
+                 transition-all duration-500 ease-in-out
+                 hover:shadow-[0_4px_20px_rgba(103,197,212,0.15)]"
         >
           <span class="text-[#67c5d4] text-sm" aria-hidden="true">★★★★★</span>
           <span class="text-white text-xs font-medium">Ver perfil en Doctoralia</span>
@@ -53,15 +54,15 @@ const hospitales = [
 
       <!-- Columna 2: navegación -->
       <div>
-        <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-[#7d84b2] mb-5">
+        <h4 class="font-heading text-xs uppercase tracking-widest text-[#7d84b2] mb-6">
           Navegación
         </h4>
-        <ul class="space-y-3">
+        <ul class="space-y-3.5">
           {navegacion.map(({ label, href }) => (
             <li>
               <a
                 href={href}
-                class="text-[#7d84b2] hover:text-[#67c5d4] text-sm transition-colors duration-200"
+                class="text-[#7d84b2] hover:text-[#67c5d4] text-sm transition-colors duration-500 ease-in-out"
               >
                 {label}
               </a>
@@ -72,10 +73,10 @@ const hospitales = [
 
       <!-- Columna 3: hospitales + CTA -->
       <div>
-        <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-[#7d84b2] mb-5">
+        <h4 class="font-heading text-xs uppercase tracking-widest text-[#7d84b2] mb-6">
           Consultorios
         </h4>
-        <ul class="space-y-3 mb-8">
+        <ul class="space-y-3.5 mb-9">
           {hospitales.map((h) => (
             <li class="flex items-start gap-2">
               <span class="text-[#67c5d4] text-xs mt-0.5 shrink-0">🏥</span>
@@ -89,8 +90,9 @@ const hospitales = [
           target="_blank"
           rel="noopener noreferrer"
           class="inline-block bg-[#67c5d4] text-[#272538] font-bold
-                 px-6 py-2.5 rounded-full text-sm
-                 hover:bg-[#67c5d4]/90 transition-all duration-200"
+                 px-7 py-3 rounded-full text-sm
+                 hover:bg-[#67c5d4]/90 transition-all duration-500 ease-in-out
+                 hover:shadow-[0_6px_24px_rgba(103,197,212,0.28)]"
         >
           Agendar cita →
         </a>
@@ -98,25 +100,30 @@ const hospitales = [
     </div>
 
     <!-- Barra inferior -->
-    <div
-      class="border-t border-[#4b528a]/40 pt-8
-             flex flex-col sm:flex-row items-center justify-between gap-4"
-    >
-      <p class="text-[#4b528a] text-xs">
-        © 2025 Dra. Flor Moreno · Clínica Colorrectal CDMX. Todos los derechos reservados.
-      </p>
-      <div class="flex gap-6">
-        {[
-          { label: 'Aviso de Privacidad', href: '/privacidad'  },
-          { label: 'Términos de Uso',     href: '/terminos'    },
-        ].map(({ label, href }) => (
-          <a
-            href={href}
-            class="text-[#4b528a] hover:text-[#7d84b2] text-xs transition-colors"
-          >
-            {label}
-          </a>
-        ))}
+    <div class="border-t border-[#4b528a]/40 pt-8">
+      <!-- Ornamento centrado -->
+      <div class="flex items-center justify-center gap-3 mb-6">
+        <div class="h-px w-16 bg-[#EF999E]/30"></div>
+        <div class="w-1 h-1 rounded-full bg-[#EF999E]/50"></div>
+        <div class="h-px w-16 bg-[#EF999E]/30"></div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-[#4b528a] text-xs">
+          © 2025 Dra. Flor Moreno · Clínica Colorrectal CDMX. Todos los derechos reservados.
+        </p>
+        <div class="flex gap-6">
+          {[
+            { label: 'Aviso de Privacidad', href: '/privacidad' },
+            { label: 'Términos de Uso',     href: '/terminos'   },
+          ].map(({ label, href }) => (
+            <a
+              href={href}
+              class="text-[#4b528a] hover:text-[#7d84b2] text-xs transition-colors duration-500 ease-in-out"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </div>

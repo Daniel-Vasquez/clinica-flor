@@ -70,10 +70,10 @@ const {
       /* ── 2. Section headers ── */
       gsap.utils.toArray('[data-anim="header"]').forEach((el) => {
         const e = el as Element;
-        gsap.set(e, { opacity: 0, y: 42 });
+        gsap.set(e, { opacity: 0, y: 48 });
         ScrollTrigger.create({
           trigger: e, start: 'top 82%', once: true,
-          onEnter: () => gsap.to(e, { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' }),
+          onEnter: () => gsap.to(e, { opacity: 1, y: 0, duration: 1.1, ease: 'power4.out' }),
         });
       });
 
@@ -82,13 +82,13 @@ const {
         const g = grid as Element;
         const items = g.querySelectorAll('[data-anim="item"]');
         if (!items.length) return;
-        gsap.set(items, { opacity: 0, y: 42 });
+        gsap.set(items, { opacity: 0, y: 48 });
         ScrollTrigger.create({
           trigger: g, start: 'top 78%', once: true,
           onEnter: () =>
             gsap.to(items, {
               opacity: 1, y: 0,
-              duration: 0.65, stagger: 0.12, ease: 'power3.out',
+              duration: 0.85, stagger: 0.14, ease: 'power4.out',
             }),
         });
       });
@@ -96,53 +96,53 @@ const {
       /* ── 4. Slide desde la izquierda ── */
       gsap.utils.toArray('[data-anim="left"]').forEach((el) => {
         const e = el as Element;
-        gsap.set(e, { opacity: 0, x: -52 });
+        gsap.set(e, { opacity: 0, x: -60 });
         ScrollTrigger.create({
           trigger: e, start: 'top 82%', once: true,
-          onEnter: () => gsap.to(e, { opacity: 1, x: 0, duration: 0.88, ease: 'power3.out' }),
+          onEnter: () => gsap.to(e, { opacity: 1, x: 0, duration: 1.1, ease: 'power4.out' }),
         });
       });
 
       /* ── 5. Slide desde la derecha ── */
       gsap.utils.toArray('[data-anim="right"]').forEach((el) => {
         const e = el as Element;
-        gsap.set(e, { opacity: 0, x: 52 });
+        gsap.set(e, { opacity: 0, x: 60 });
         ScrollTrigger.create({
           trigger: e, start: 'top 82%', once: true,
-          onEnter: () => gsap.to(e, { opacity: 1, x: 0, duration: 0.88, ease: 'power3.out' }),
+          onEnter: () => gsap.to(e, { opacity: 1, x: 0, duration: 1.1, ease: 'power4.out' }),
         });
       });
 
       /* ── 6. Fade-up genérico ── */
       gsap.utils.toArray('[data-anim="up"]').forEach((el) => {
         const e = el as Element;
-        gsap.set(e, { opacity: 0, y: 38 });
+        gsap.set(e, { opacity: 0, y: 44 });
         ScrollTrigger.create({
           trigger: e, start: 'top 82%', once: true,
-          onEnter: () => gsap.to(e, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }),
+          onEnter: () => gsap.to(e, { opacity: 1, y: 0, duration: 1.0, ease: 'power4.out' }),
         });
       });
 
       /* ── 7. Pasos del proceso ── */
       gsap.utils.toArray('[data-anim="step"]').forEach((step) => {
         const s = step as Element;
-        gsap.set(s, { opacity: 0, x: -36 });
+        gsap.set(s, { opacity: 0, x: -40 });
         ScrollTrigger.create({
           trigger: s, start: 'top 85%', once: true,
-          onEnter: () => gsap.to(s, { opacity: 1, x: 0, duration: 0.75, ease: 'power3.out' }),
+          onEnter: () => gsap.to(s, { opacity: 1, x: 0, duration: 0.95, ease: 'power4.out' }),
         });
       });
 
       /* ── 8. Items del FAQ (stagger grupal) ── */
       const faqItems = document.querySelectorAll('[data-anim="faq"]');
       if (faqItems.length) {
-        gsap.set(faqItems, { opacity: 0, y: 26 });
+        gsap.set(faqItems, { opacity: 0, y: 32 });
         ScrollTrigger.create({
           trigger: faqItems[0], start: 'top 80%', once: true,
           onEnter: () =>
             gsap.to(faqItems, {
               opacity: 1, y: 0,
-              duration: 0.5, stagger: 0.09, ease: 'power3.out',
+              duration: 0.7, stagger: 0.11, ease: 'power4.out',
             }),
         });
       }
