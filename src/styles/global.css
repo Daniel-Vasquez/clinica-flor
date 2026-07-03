@@ -256,22 +256,3 @@ html.light #proceso .btn-outline:hover {
   background-color: rgba(39, 37, 56, 0.05) !important;
 }
 
-/* ── Contact form fields ─────────────────────────────────── */
-html.light .field-label {
-  color: #4b528a !important;
-}
-
-html.light .field-input {
-  background-color: rgba(75, 82, 138, 0.07) !important;
-  border-color:     rgba(75, 82, 138, 0.22) !important;
-  color:            #1a1830 !important;
-}
-
-html.light .field-input::placeholder {
-  color: rgba(75, 82, 138, 0.5) !important;
-}
-
-html.light select.field-input option {
-  background-color: #ffffff;
-  color:            #1a1830;
-}
