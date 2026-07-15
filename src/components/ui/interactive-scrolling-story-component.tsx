@@ -6,35 +6,35 @@ const DOCTORALIA =
 // ── Datos de los padecimientos ─────────────────────────────────────────────
 const slidesData = [
   {
-    number:      "01",
-    title:       "Hemorroides",
-    subtitle:    "También conocidas como almorranas",
+    number: "01",
+    title: "Hemorroides",
+    subtitle: "También conocidas como almorranas",
     description:
       "Las hemorroides son venas inflamadas en el recto o el ano. Pueden causar dolor, sangrado y molestia, pero con el tratamiento adecuado se resuelven de forma efectiva sin necesidad de cirugía en la mayoría de los casos.",
-    image: "public/images/padecimientos/padecimiento-hemorroides.jpeg",
-    bgColor:     "#272538",
+    image: "./public/images/padecimientos/padecimiento-hemorroides.jpeg",
+    bgColor: "#272538",
     accentColor: "#67c5d4",
   },
   {
-    number:      "02",
-    title:       "Fisuras Anales",
-    subtitle:    "Herida en la piel perianal",
+    number: "02",
+    title: "Fisuras Anales",
+    subtitle: "Herida en la piel perianal",
     description:
       "Es una herida en la piel perianal producida por trauma anal que genera dolor intenso durante y después de evacuar. Con manejo médico adecuado se puede cicatrizar sin necesidad de cirugía en la mayoría de los casos.",
     image:
       "public/images/padecimientos/predecimiento-fistula-anal.jpeg",
-    bgColor:     "#1e1c2e",
+    bgColor: "#1e1c2e",
     accentColor: "#EF999E",
   },
   {
-    number:      "03",
-    title:       "Fístula Anal",
-    subtitle:    "Comunicación anormal",
+    number: "03",
+    title: "Fístula Anal",
+    subtitle: "Comunicación anormal",
     description:
       "Comunicación anormal entre la piel perianal y el ano que genera secreción constante y molestia. Requiere diagnóstico preciso y tratamiento especializado para su resolución definitiva y definitiva prevención de recidivas.",
     image:
       "public/images/padecimientos/predecimiento-fisuras-anales.jpeg",
-    bgColor:     "#272538",
+    bgColor: "#272538",
     accentColor: "#67c5d4",
   },
 ];
@@ -48,13 +48,13 @@ export function ScrollingFeatureShowcase() {
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
-      const rect        = containerRef.current.getBoundingClientRect();
+      const rect = containerRef.current.getBoundingClientRect();
       const totalScroll = containerRef.current.offsetHeight - window.innerHeight;
-      const scrolled    = Math.max(0, -rect.top);
+      const scrolled = Math.max(0, -rect.top);
 
       if (scrolled >= totalScroll) return;
 
-      const progress  = scrolled / totalScroll;
+      const progress = scrolled / totalScroll;
       const nextIndex = Math.min(
         slidesData.length - 1,
         Math.floor(progress * slidesData.length),
@@ -70,8 +70,8 @@ export function ScrollingFeatureShowcase() {
   // Scroll programático al hacer clic en paginación
   const scrollToSlide = (index: number) => {
     if (!containerRef.current) return;
-    const top    = containerRef.current.offsetTop;
-    const total  = containerRef.current.offsetHeight - window.innerHeight;
+    const top = containerRef.current.offsetTop;
+    const total = containerRef.current.offsetHeight - window.innerHeight;
     const target = top + (total * index) / slidesData.length + 1;
     window.scrollTo({ top: target, behavior: "smooth" });
   };
@@ -85,7 +85,7 @@ export function ScrollingFeatureShowcase() {
         className="sticky top-0 h-screen w-full overflow-hidden"
         style={{
           backgroundColor: current.bgColor,
-          transition:       "background-color 0.7s ease",
+          transition: "background-color 0.7s ease",
         }}
       >
         {/* ── Capas de fondo con fade-in/out (mobile y desktop) ───────── */}
@@ -94,11 +94,11 @@ export function ScrollingFeatureShowcase() {
             key={i}
             className="absolute inset-0"
             style={{
-              backgroundImage:    `url(${slide.image})`,
-              backgroundSize:     "cover",
+              backgroundImage: `url(${slide.image})`,
+              backgroundSize: "cover",
               backgroundPosition: "center",
-              opacity:            i === activeIndex ? 0.28 : 0,
-              transition:         "opacity 0.7s ease",
+              opacity: i === activeIndex ? 0.28 : 0,
+              transition: "opacity 0.7s ease",
             }}
           />
         ))}
@@ -123,7 +123,7 @@ export function ScrollingFeatureShowcase() {
                     aria-label={`Ir a ${slide.title}`}
                     className="h-1 rounded-full transition-all duration-500"
                     style={{
-                      width:           i === activeIndex ? "48px" : "24px",
+                      width: i === activeIndex ? "48px" : "24px",
                       backgroundColor:
                         i === activeIndex
                           ? slide.accentColor
@@ -140,14 +140,14 @@ export function ScrollingFeatureShowcase() {
                   key={i}
                   className="absolute inset-0 transition-all duration-700 ease-in-out"
                   style={{
-                    opacity:   i === activeIndex ? 1 : 0,
+                    opacity: i === activeIndex ? 1 : 0,
                     transform: i === activeIndex ? "translateY(0)" : "translateY(40px)",
                   }}
                 >
                   <span
                     className="text-[10px] font-mono tracking-widest px-3 py-1 rounded-full border inline-block mb-6"
                     style={{
-                      color:       slide.accentColor,
+                      color: slide.accentColor,
                       borderColor: `${slide.accentColor}33`,
                     }}
                   >
