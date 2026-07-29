@@ -1,7 +1,10 @@
 ---
-// Hero — usa el componente glassmorphism React
-// Las animaciones de entrada son CSS puras (gthFadeSlideIn) dentro del componente
+// Hero — secuencia de 192 fotogramas en <canvas> controlada por scroll (pinned, 100vh)
+// con el contenido glassmorphism superpuesto encima.
+import CanvasScrollHero from '../ui/canvas-scroll-hero';
 import GlassmorphismTrustHero from '../ui/glassmorphism-trust-hero';
 ---
 
-<GlassmorphismTrustHero client:load />
+<CanvasScrollHero id="inicio" client:load>
+  <GlassmorphismTrustHero />
+</CanvasScrollHero>

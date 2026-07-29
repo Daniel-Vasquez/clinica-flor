@@ -15,12 +15,12 @@ const DOCTORALIA =
   "https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar";
 
 const TRUSTED = [
-  { name: "San Ángel Inn Patriotismo", icon: Building2  },
-  { name: "Star Médica Luna Parc",     icon: Building2  },
-  { name: "Doctoralia ★★★★★",         icon: Star       },
-  { name: "12+ Años de experiencia",   icon: Award      },
-  { name: "Coloproctología CDMX",      icon: Activity   },
-  { name: "Médico certificado",        icon: BadgeCheck },
+  { name: "San Ángel Inn Patriotismo", icon: Building2 },
+  { name: "Star Médica Luna Parc", icon: Building2 },
+  { name: "Doctoralia ★★★★★", icon: Star },
+  { name: "12+ Años de experiencia", icon: Award },
+  { name: "Coloproctología CDMX", icon: Activity },
+  { name: "Médico certificado", icon: BadgeCheck },
 ];
 
 const StatItem = ({ value, label }: { value: string; label: string }) => (
@@ -34,11 +34,7 @@ const StatItem = ({ value, label }: { value: string; label: string }) => (
 
 export default function GlassmorphismTrustHero() {
   return (
-    <div
-      id="inicio"
-      className="relative w-full text-white overflow-hidden"
-      style={{ backgroundColor: "#272538" }}
-    >
+    <div className="relative h-full w-full overflow-hidden text-white">
       <style>{`
         @keyframes gthFadeSlideIn {
           from { opacity: 0; transform: translateY(28px); }
@@ -63,22 +59,16 @@ export default function GlassmorphismTrustHero() {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] translate-y-1/4 -translate-x-1/4 rounded-full bg-[#67c5d4]/[0.05] blur-[100px]" />
       </div>
 
+      {/* Scrim para legibilidad del texto sobre la secuencia de video del canvas */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/images/hero-bg.jpg')",
-          opacity: 0.42,
-          maskImage:
-            "linear-gradient(180deg, transparent 0%, black 12%, black 70%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(180deg, transparent 0%, black 12%, black 70%, transparent 100%)",
-        }}
+        aria-hidden="true"
+        className="absolute inset-0 z-0 bg-gradient-to-t from-[#161426]/85 via-[#161426]/35 to-[#161426]/55"
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-36 pb-16 sm:px-6 md:pt-48 md:pb-28 lg:px-8">
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-10 items-start">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10 items-center">
 
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-10 pt-4">
+          <div className="lg:col-span-7 flex flex-col justify-center space-y-6 lg:space-y-10">
 
             <div className="gth-fade gth-d1">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#67c5d4]/30 bg-[#67c5d4]/10 px-4 py-1.5 backdrop-blur-md hover:bg-[#67c5d4]/15 transition-colors duration-500 ease-in-out">
@@ -95,7 +85,7 @@ export default function GlassmorphismTrustHero() {
             <h1
               className="gth-fade gth-d2 font-heading tracking-tight leading-[1.08]"
               style={{
-                fontSize: "clamp(2.8rem, 6.5vw, 5.5rem)",
+                fontSize: "clamp(2.25rem, 7vw, 5.5rem)",
                 maskImage:
                   "linear-gradient(180deg, black 0%, black 82%, transparent 100%)",
                 WebkitMaskImage:
@@ -118,7 +108,7 @@ export default function GlassmorphismTrustHero() {
               ¡importante!
             </h1>
 
-            <p className="gth-fade gth-d3 max-w-xl text-lg text-[#7d84b2] leading-loose">
+            <p className="gth-fade gth-d3 max-w-xl text-base text-white leading-relaxed sm:text-lg md:leading-loose">
               A través de buenos hábitos alimenticios y un tratamiento adecuado
               podemos evitar complicaciones o cirugías, que te permitan recuperar tu{" "}
               <strong className="text-white/85 font-medium">salud colorrectal.</strong>
@@ -151,7 +141,7 @@ export default function GlassmorphismTrustHero() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 space-y-6 lg:mt-10">
+          <div className="hidden lg:col-span-5 lg:block lg:mt-10 space-y-6">
 
             <div className="gth-fade gth-d5 relative overflow-hidden rounded-3xl border border-[#4b528a]/50 bg-[#4b528a]/20 p-10 backdrop-blur-xl shadow-2xl">
               <div className="absolute top-0 right-0 -mr-16 -mt-16 h-64 w-64 rounded-full bg-[#67c5d4]/[0.06] blur-3xl pointer-events-none" />
@@ -187,9 +177,9 @@ export default function GlassmorphismTrustHero() {
                 <div className="h-px w-full bg-[#4b528a]/60 mb-6" />
 
                 <div className="grid grid-cols-3 gap-4 text-center">
-                  <StatItem value="30+"  label="Pacientes"     />
+                  <StatItem value="30+" label="Pacientes" />
                   <div className="w-px h-full bg-[#4b528a]/60 mx-auto" />
-                  <StatItem value="2"    label="Hospitales"    />
+                  <StatItem value="2" label="Hospitales" />
                   <div className="w-px h-full bg-[#4b528a]/60 mx-auto" />
                   <StatItem value="100%" label="Personalizada" />
                 </div>
