@@ -7,6 +7,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Theme tokens — override under `html.light` (ver toggleTheme en Navbar.tsx) */
+    --hero-bg: #272538;
   }
 
   body {
@@ -74,20 +76,14 @@ html.light body {
 
 /* ── Hero (#inicio) ──────────────────────────────────────── */
 
-html.light #inicio {
-  background-color: #f2f0fc !important;
-}
-
-/* Reduce la opacidad de la imagen de fondo para que quede sutil sobre fondo claro */
-html.light #inicio [style*="hero-bg"] {
-  opacity: 0.1 !important;
+/* Token consumido por canvas-scroll-hero.tsx (bg-[var(--hero-bg)]).
+   Se redefine aquí en vez de forzar con !important: como el componente
+   referencia la variable, el valor se propaga solo con el cascade. */
+html.light {
+  --hero-bg: #f2f0fc;
 }
 
 /* Texto principal heredado */
-html.light #inicio.text-white {
-  color: #1a1830 !important;
-}
-
 html.light #inicio .text-white,
 html.light #inicio .text-white\/85 {
   color: #1a1830 !important;

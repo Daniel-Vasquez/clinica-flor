@@ -161,8 +161,7 @@ export default function CanvasScrollHero({ id, children }: CanvasScrollHeroProps
     <div
       id={id}
       ref={sectionRef}
-      className="relative h-screen w-full overflow-hidden"
-      style={{ backgroundColor: "#272538" }}
+      className="relative h-screen w-full overflow-hidden bg-[var(--hero-bg)]"
     >
       <canvas
         ref={canvasRef}
@@ -174,9 +173,8 @@ export default function CanvasScrollHero({ id, children }: CanvasScrollHeroProps
 
       {/* Loader: bloquea la vista hasta que las 192 imágenes están precargadas */}
       <div
-        className="absolute inset-0 z-50 flex flex-col items-center justify-center gap-4 transition-opacity duration-700 ease-out"
+        className="absolute inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-[var(--hero-bg)] transition-opacity duration-700 ease-out"
         style={{
-          backgroundColor: "#272538",
           opacity: isReady ? 0 : 1,
           pointerEvents: isReady ? "none" : "auto",
         }}
