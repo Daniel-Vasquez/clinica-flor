@@ -1,0 +1,36 @@
+---
+import Layout           from '../../layouts/Layout.astro';
+import Navbar           from '../../components/navigation/Navbar';
+import Footer           from '../../components/Footer.astro';
+import PageHero         from '../../components/subpages/PageHero.astro';
+import PadecimientoCard from '../../components/subpages/PadecimientoCard.astro';
+import { padecimientos, INDICE } from '../../data/padecimientos';
+---
+
+<Layout title={INDICE.seoTitle} description={INDICE.titulo}>
+  <Navbar client:load />
+  <main class="subpage">
+    <PageHero titulo={INDICE.titulo} />
+
+    <section class="relative bg-[#1e1c2e] py-24 md:py-32 overflow-hidden">
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+        <div
+          data-anim="stagger"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-8"
+        >
+          {
+            padecimientos.map((p) => (
+              <PadecimientoCard
+                href={`/padecimientos/${p.slug}`}
+                titulo={p.indice.titulo}
+                extracto={p.indice.extracto}
+                imagen={p.imagen}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

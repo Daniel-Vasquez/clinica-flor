@@ -252,3 +252,61 @@ html.light #proceso .btn-outline:hover {
   background-color: rgba(39, 37, 56, 0.05) !important;
 }
 
+
+/* ── Subpáginas (Padecimientos, ¿Quién soy?, Agenda tu cita) ─
+   Todas envuelven su contenido en <main class="subpage">.     */
+html.light .subpage .bg-\[\#1e1c2e\] {
+  background-color: #ffffff !important;
+}
+
+html.light .subpage .text-white {
+  color: #1a1830 !important;
+}
+
+html.light .subpage .text-\[\#7d84b2\] {
+  color: #4b528a !important;
+}
+
+html.light .subpage .bg-\[\#4b528a\]\/20,
+html.light .subpage .bg-\[\#4b528a\]\/30 {
+  background-color: rgba(75, 82, 138, 0.07) !important;
+}
+
+html.light .subpage .border-\[\#4b528a\]\/40 {
+  border-color: rgba(75, 82, 138, 0.2) !important;
+}
+
+html.light .subpage .divide-\[\#4b528a\]\/35 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(75, 82, 138, 0.15) !important;
+}
+
+html.light .subpage .btn-outline {
+  border-color: rgba(39, 37, 56, 0.22) !important;
+  color: #1a1830 !important;
+}
+
+html.light .subpage .btn-outline:hover {
+  background-color: rgba(39, 37, 56, 0.05) !important;
+}
+
+html.light .subpage [role="tab"][aria-selected="true"] {
+  color: #272538 !important;
+}
+
+/* Marquesina de aseguradoras (Agenda tu cita) */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.marquee:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
+}

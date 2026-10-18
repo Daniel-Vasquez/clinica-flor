@@ -1,14 +1,13 @@
 ---
+import { padecimientos } from "../data/padecimientos";
+
 const DOCTORALIA =
   "https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar";
 
 const navegacion = [
-  { label: "Padecimientos", href: "#padecimientos" },
-  { label: "La Clínica", href: "#clinica" },
-  { label: "La Doctora", href: "#doctora" },
-  { label: "Proceso", href: "#proceso" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Padecimientos", href: "/padecimientos" },
+  { label: "¿Quién soy?", href: "/quien-soy" },
+  { label: "Agenda tu cita", href: "/agenda-tu-cita" }
 ];
 
 const hospitales = [
@@ -20,7 +19,7 @@ const hospitales = [
 <footer class="bg-[#1e1c2e] border-t border-[#4b528a]/40">
   <div class="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
     <!-- Grid principal -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-14 mb-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 mb-20">
       <!-- Columna 1: marca -->
       <div>
         <img
@@ -75,7 +74,32 @@ const hospitales = [
         </ul>
       </div>
 
-      <!-- Columna 3: hospitales + CTA -->
+      <!-- Columna 3: padecimientos -->
+      <div>
+        <h4
+          class="font-heading text-xs uppercase tracking-widest text-[#7d84b2] mb-6"
+        >
+          <a href="/padecimientos" class="hover:text-[#67c5d4] transition-colors duration-500 ease-in-out">
+            Padecimientos
+          </a>
+        </h4>
+        <ul class="grid grid-cols-2 lg:grid-cols-1 gap-x-6 gap-y-2.5">
+          {
+            padecimientos.map(({ slug, indice }) => (
+              <li>
+                <a
+                  href={`/padecimientos/${slug}`}
+                  class="text-[#7d84b2] hover:text-[#67c5d4] text-sm transition-colors duration-500 ease-in-out"
+                >
+                  {indice.titulo}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Columna 4: hospitales + CTA -->
       <div>
         <h4
           class="font-heading text-xs uppercase tracking-widest text-[#7d84b2] mb-6"
@@ -94,9 +118,7 @@ const hospitales = [
         </ul>
 
         <a
-          href={DOCTORALIA}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/agenda-tu-cita"
           class="inline-block bg-[#67c5d4] text-[#272538] font-bold
                  px-7 py-3 rounded-full text-sm
                  hover:bg-[#67c5d4]/90 transition-all duration-500 ease-in-out

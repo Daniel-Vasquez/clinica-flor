@@ -1,0 +1,171 @@
+---
+import Layout           from '../../layouts/Layout.astro';
+import Navbar           from '../../components/navigation/Navbar';
+import Footer           from '../../components/Footer.astro';
+import PageHero         from '../../components/subpages/PageHero.astro';
+import Ornament         from '../../components/subpages/Ornament.astro';
+import PadecimientoCard from '../../components/subpages/PadecimientoCard.astro';
+import {
+  padecimientos,
+  getPadecimiento,
+  CTA,
+  OTROS,
+  type Padecimiento,
+} from '../../data/padecimientos';
+
+export function getStaticPaths() {
+  return padecimientos.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+
+const { p } = Astro.props as { p: Padecimiento };
+const relacionados = p.relacionados
+  .map((slug) => getPadecimiento(slug))
+  .filter((r): r is Padecimiento => Boolean(r));
+
+const stripTags = (html: string) => html.replace(/<[^>]+>/g, '');
+const description = stripTags([p.titulo, ...p.bloques[0].parrafos].join(' '));
+---
+
+<Layout title={p.seoTitle} description={description}>
+  <Navbar client:load />
+  <main class="subpage">
+
+    <!-- Hero -->
+    <PageHero titulo={p.titulo} backHref="/padecimientos" backLabel="Padecimientos">
+      <div slot="aside">
+        <div class="aspect-[4/3] rounded-3xl overflow-hidden ring-1 ring-[#4b528a]/40 bg-[#4b528a]/20">
+          <img src={p.imagen} alt="" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </PageHero>
+
+    <!-- Contenido -->
+    <section class="relative bg-[#1e1c2e] py-24 md:py-32 overflow-hidden">
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full bg-[#67c5d4]/[0.04] blur-[110px]"></div>
+      </div>
+
+      <div class="relative max-w-6xl mx-auto px-6 lg:px-12 divide-y divide-[#4b528a]/35">
+        {
+          p.bloques.map((bloque, i) => (
+            <article
+              data-anim="up"
+              class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr),minmax(0,2fr)] gap-6 md:gap-16 py-12 md:py-16 first:pt-0 last:pb-0"
+            >
+              <div>
+                <span class="section-number">[{String(i + 1).padStart(2, '0')}]</span>
+                <h2 class="font-heading text-white text-3xl md:text-4xl mt-3">{bloque.titulo}</h2>
+              </div>
+              <div class="space-y-5">
+                {bloque.parrafos.map((parrafo) => (
+                  <p
+                    class="text-[#7d84b2] text-lg leading-loose [&_strong]:text-white [&_strong]:font-semibold"
+                    set:html={parrafo}
+                  />
+                ))}
+                {bloque.lista && (
+                  <ul class="space-y-3 pt-1">
+                    {bloque.lista.map((item) => (
+                      <li class="flex items-start gap-3 text-[#7d84b2] text-lg leading-relaxed">
+                        <span class="mt-3 w-1.5 h-1.5 rounded-full bg-[#EF999E] shrink-0" aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- CTA — bloque light (mismo patrón que la bio de la doctora en la home) -->
+    <section class="py-24 md:py-28 relative overflow-hidden" style="background-color: #f2f0fc;">
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-[#EF999E]/[0.06] blur-[100px]"></div>
+        <div class="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full bg-[#67c5d4]/[0.06] blur-[80px]"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+        <div
+          data-anim="up"
+          class="grid grid-cols-1 lg:grid-cols-[1fr,2fr] gap-12 lg:gap-20 items-center
+                 bg-white border border-[#4b528a]/20 rounded-3xl p-10 md:p-14 shadow-sm"
+        >
+          <div class="flex justify-center lg:justify-start">
+            <div
+              class="relative w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden
+                     ring-4 ring-[#67c5d4]/30 ring-offset-4 ring-offset-[#f2f0fc] bg-[#4b528a]/10"
+            >
+              <img
+                src="/images/profile/dra-flor-moreno.jpg"
+                alt="Dra. Flor Moreno"
+                class="w-full h-full object-cover object-top"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div>
+            <Ornament class="mb-6" />
+            <p class="text-[#1a1830] text-lg md:text-xl leading-loose mb-4 border-l-[3px] border-[#EF999E] pl-7">
+              {CTA.recordatorio}
+            </p>
+            <p
+              class="text-[#4b528a] text-base md:text-lg leading-loose mb-10 pl-7 [&_strong]:text-[#EF999E] [&_strong]:font-semibold"
+              set:html={CTA.atencion}
+            />
+
+            <div class="flex flex-wrap items-center gap-5">
+              <a href="/agenda-tu-cita" class="btn-primary">
+                {CTA.boton} <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <div class="mt-10 pt-8 border-t border-[#4b528a]/15 flex flex-wrap items-center gap-4">
+              <p class="text-[#4b528a] text-sm">{CTA.duda}</p>
+              <a
+                href={CTA.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-outline-dark !py-2.5 !px-6 !text-sm"
+              >
+                <svg viewBox="0 0 24 24" class="w-4 h-4 fill-[#25D366]" aria-hidden="true">
+                  <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.09 3.2 5.08 4.48.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 0 1-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.75C5.8.75.7 5.84.7 12.1c0 2 .52 3.95 1.52 5.67L.6 23.65l6.02-1.58a11.33 11.33 0 0 0 5.43 1.38h.01c6.25 0 11.34-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.02z"/>
+                </svg>
+                {CTA.whatsapp}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Otros padecimientos -->
+    <section class="relative bg-[#272538] py-28 md:py-36 overflow-hidden">
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="mb-16 max-w-2xl" data-anim="header">
+          <Ornament />
+          <h2 class="font-heading text-white text-4xl md:text-5xl leading-tight">{OTROS.titulo}</h2>
+          <p class="text-[#7d84b2] text-lg mt-5 leading-loose">{OTROS.subtitulo}</p>
+        </div>
+
+        <div data-anim="stagger" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {
+            relacionados.map((r) => (
+              <PadecimientoCard
+                href={`/padecimientos/${r.slug}`}
+                titulo={r.relacionada.titulo}
+                extracto={r.relacionada.extracto}
+                imagen={r.imagen}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,183 @@
+---
+// Contenido literal de https://clinicacolorrectal.com/agenda-tu-cita/
+import Layout   from '../layouts/Layout.astro';
+import Navbar   from '../components/navigation/Navbar';
+import Footer   from '../components/Footer.astro';
+import PageHero from '../components/subpages/PageHero.astro';
+import Ornament from '../components/subpages/Ornament.astro';
+
+const consultas = [
+  { nombre: ['CONSULTA STAR', 'MÉDICA LUNA PARC'], duracion: '30 min.', precio: '$800 mxn' },
+  { nombre: ['CONSULTA SAN', 'ÁNGEL INN'],         duracion: '30 min.', precio: '$1000 mxn' },
+];
+
+// Los logos de la fuente no se usan (solo imágenes de public/images): se muestran los nombres.
+const aseguradoras = [
+  'Allianz', 'Atlas', 'AXA', 'Banorte', 'Bupa', 'BX+', 'GNP',
+  'Inbursa', 'Mapfre', 'MetLife', 'Plan Seguro', 'Seguros Monterrey', 'Zurich',
+];
+
+const consultorios = [
+  {
+    nombre: ['HOSPITAL STAR MEDICA LUNA PARC TORRE DE COSULTORIOS'],
+    direccion: ['Cuautitlán Izcalli, Edo. de México, Consultorio 1212, Av. 1ro. de Mayo, Lt 34 Mz C-34-C, Centro Urbano.'],
+    mapa: 'https://www.google.com.mx/maps/place/Hospital+Star+M%C3%A9dica+Luna+Parc/@19.6579009,-99.2123795,17z/data=!4m5!3m4!1s0x85d21e363c19eddb:0x401644bce5062d4!8m2!3d19.6578959!4d-99.2101855?shorturl=1',
+  },
+  {
+    nombre: ['HOSPITAL SAN ÁNGEL INN', 'PATRIOTISMO'],
+    direccion: ['Av. Patriotismo 67,', 'Col. San Juan, Deleg. Benito Juárez, C.P. 03730, CDMX.'],
+    mapa: 'https://www.google.com.mx/maps/place/Hospital+San+%C3%81ngel+Inn+Patriotismo/@19.3764029,-99.1881173,17z/data=!3m1!5s0x85d1ff9041950ec1:0x65f96383aa5c99e8!4m6!3m5!1s0x85d1ff86c281a711:0xd21713ee4dd4b3ad!8m2!3d19.3762317!4d-99.1862824!16s%2Fg%2F11j4vvjzkm!5m1!1e2?entry=ttu&g_ep=EgoyMDI1MTIwOC4wIKXMDSoASAFQAw%3D%3D',
+  },
+];
+---
+
+<Layout
+  title="Agenda tu cita | Clínica Colorrectal"
+  description="Agenda tu consulta de valoración: Atención rápida y personalizada."
+>
+  <Navbar client:load />
+  <main class="subpage">
+
+    <PageHero titulo="Agenda tu consulta de valoración:">
+      <p class="text-[#7d84b2] text-lg md:text-xl leading-loose mt-6">Atención rápida y personalizada.</p>
+
+      <div slot="aside">
+        <div data-anim="stagger" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {
+            consultas.map((c) => (
+              <div
+                data-anim="item"
+                class="bg-[#4b528a]/20 border border-[#4b528a]/40 rounded-3xl p-8
+                       transition-all duration-500 ease-in-out hover:border-[#EF999E]/40"
+              >
+                <p class="text-[#67c5d4] text-xs uppercase tracking-widest font-semibold leading-relaxed mb-6">
+                  {c.nombre[0]}<br />{c.nombre[1]}
+                </p>
+                <p class="font-heading text-white text-5xl leading-none">{c.precio}</p>
+                <p class="text-[#7d84b2] text-sm mt-4 flex items-center gap-2">
+                  <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-current fill-none" stroke-width="1.6" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" stroke-linecap="round" />
+                  </svg>
+                  {c.duracion}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+        <p class="text-[#7d84b2] text-sm mt-6 flex items-center gap-2.5" data-anim="up">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+          Consulta médica de lunes a viernes.
+        </p>
+      </div>
+    </PageHero>
+
+    <!-- Seguros -->
+    <section class="relative bg-[#1e1c2e] py-24 md:py-28 overflow-hidden">
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="text-center max-w-2xl mx-auto mb-14" data-anim="header">
+          <Ornament center />
+          <h2 class="font-heading text-white text-4xl md:text-5xl">¿Tienes seguro?</h2>
+          <p class="text-[#7d84b2] text-lg mt-5 leading-loose">
+            Consulta cuáles son las empresas aseguradoras con las que trabajo.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="marquee relative overflow-hidden"
+        data-anim="up"
+        style="mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);"
+      >
+        <ul class="animate-marquee flex w-max gap-4">
+          {
+            [...aseguradoras, ...aseguradoras].map((nombre, i) => (
+              <li
+                aria-hidden={i >= aseguradoras.length ? 'true' : undefined}
+                class="shrink-0 bg-[#4b528a]/20 border border-[#4b528a]/40 rounded-2xl px-8 py-5
+                       font-heading text-white text-xl whitespace-nowrap"
+              >
+                {nombre}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- Widget Doctoralia -->
+    <section class="py-24 md:py-32 relative overflow-hidden" style="background-color: #f2f0fc;">
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-40 right-0 w-[700px] h-[700px] rounded-full bg-[#EF999E]/[0.09] blur-[130px]"></div>
+        <div class="absolute bottom-0 -left-40 w-[600px] h-[600px] rounded-full bg-[#67c5d4]/[0.07] blur-[110px]"></div>
+      </div>
+
+      <div class="relative max-w-4xl mx-auto px-6 lg:px-12">
+        <div class="text-center mb-12" data-anim="header">
+          <Ornament center class="mb-8" />
+          <h2 class="font-heading text-[#1a1830] text-4xl md:text-5xl lg:text-6xl">
+            Agenda tu cita <em class="text-[#EF999E]">ahora:</em>
+          </h2>
+        </div>
+
+        <div
+          data-anim="up"
+          class="bg-white border border-[#4b528a]/20 rounded-3xl p-4 md:p-8 shadow-sm min-h-[200px]
+                 [&_.zl-url]:text-[#4b528a] [&_.zl-url]:underline"
+        >
+          <a
+            id="zl-url"
+            class="zl-url"
+            href="https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/cuautitlan-izcalli"
+            rel="nofollow"
+            data-zlw-doctor="flor-gisela-moreno-flores"
+            data-zlw-type="big_with_calendar"
+            data-zlw-opinion="false"
+            data-zlw-hide-branding="true"
+          >Flor Gisela Moreno Flores - Doctoralia.com.mx</a>
+          <script is:inline>!function($_x,_s,id){var js,fjs=$_x.getElementsByTagName(_s)[0];if(!$_x.getElementById(id)){js=$_x.createElement(_s);js.id=id;js.src="//platform.docplanner.com/js/widget.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","zl-widget-s");</script>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consultorios -->
+    <section class="relative bg-[#272538] py-24 md:py-28 overflow-hidden">
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+        <div data-anim="stagger" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {
+            consultorios.map((c) => (
+              <a
+                href={c.mapa}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-anim="item"
+                class="group flex items-start gap-5 bg-[#4b528a]/20 border border-[#4b528a]/40 rounded-3xl p-8 md:p-10
+                       transition-all duration-500 ease-in-out hover:border-[#EF999E]/40"
+              >
+                <span
+                  class="shrink-0 w-12 h-12 rounded-full bg-[#67c5d4]/10 border border-[#67c5d4]/25
+                         flex items-center justify-center text-[#67c5d4]"
+                  aria-hidden="true"
+                >
+                  <svg viewBox="0 0 24 24" class="w-5 h-5 stroke-current fill-none" stroke-width="1.6">
+                    <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" stroke-linejoin="round" />
+                    <circle cx="12" cy="9.5" r="2.5" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="text-white text-sm font-semibold uppercase tracking-widest leading-relaxed mb-3">
+                    {c.nombre.map((linea, i) => (<>{i > 0 && <br />}{linea}</>))}
+                  </p>
+                  <p class="text-[#7d84b2] text-base leading-relaxed group-hover:text-[#67c5d4] transition-colors duration-500">
+                    {c.direccion.map((linea, i) => (<>{i > 0 && <br />}{linea}</>))}
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

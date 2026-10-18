@@ -1,0 +1,49 @@
+---
+// Hero oscuro para subpáginas: deja espacio al header fijo y aplica blobs + ornamento.
+// El slot por defecto va debajo del h1; el slot "aside" ocupa la columna derecha (opcional).
+import Ornament from './Ornament.astro';
+
+export interface Props {
+  titulo:   string;
+  backHref?:  string;
+  backLabel?: string;
+}
+
+const { titulo, backHref, backLabel } = Astro.props;
+const hasAside = Astro.slots.has('aside');
+---
+
+<section class="relative overflow-hidden bg-[#272538] pt-40 md:pt-48 pb-20 md:pb-28">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-[#EF999E]/[0.06] blur-[120px]"></div>
+    <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#67c5d4]/[0.06] blur-[100px]"></div>
+  </div>
+
+  <div
+    class:list={[
+      'relative max-w-7xl mx-auto px-6 lg:px-12',
+      hasAside && 'grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center',
+    ]}
+  >
+    <div data-anim="left">
+      {
+        backHref && (
+          <a
+            href={backHref}
+            class="inline-flex items-center gap-2 text-[#7d84b2] hover:text-[#67c5d4] text-sm font-medium
+                   tracking-wide mb-8 transition-colors duration-500 ease-in-out"
+          >
+            <span aria-hidden="true">←</span> {backLabel}
+          </a>
+        )
+      }
+      <Ornament />
+      <h1 class="font-heading text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05]">
+        {titulo}
+      </h1>
+      <slot />
+    </div>
+
+    {hasAside && <div data-anim="right"><slot name="aside" /></div>}
+  </div>
+</section>

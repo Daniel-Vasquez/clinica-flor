@@ -1,0 +1,163 @@
+---
+// Contenido literal de https://clinicacolorrectal.com/quien-soy/
+import Layout   from '../layouts/Layout.astro';
+import Navbar   from '../components/navigation/Navbar';
+import Footer   from '../components/Footer.astro';
+import PageHero from '../components/subpages/PageHero.astro';
+
+const tabs = [
+  {
+    id: 'general',
+    label: 'General',
+    parrafos: [
+      'Soy médico especialista en coloproctología con experiencia en tratamiento quirúrgico y tradicional de padecimientos del tracto digestivo, colon, recto y ano. Atiendo a todos mis pacientes de forma personalizada al identificar sus necesidades, para dar información clara de cómo podemos mejorar su salud.',
+    ],
+  },
+  {
+    id: 'estudios',
+    label: 'Estudios',
+    parrafos: [
+      'Soy egresada como médico cirujano de la Universidad Autónoma de Guadalajara. Me especialicé en Cirugía General en el Hospital General de Ecatepec “Las Américas”, avalado por la Universidad Autónoma del Estado de México. Además de realizar una subespecialidad en coloproctología en el Hospital General de México, avalado por la UNAM y la Secretaría de Salud.',
+    ],
+  },
+  {
+    id: 'experiencia',
+    label: 'Experiencia',
+    parrafos: [
+      'Tengo más de 12 años de experiencia como médico coloproctóloga. Asimismo, encabezo un equipo de especialistas en “Clínica Colorrectal” desde hace 6 años, en donde ofrecemos un servicio integral para hacerte llegar a tu mejor versión y recuperar tu salud.',
+    ],
+  },
+  {
+    id: 'cedula',
+    label: 'Cédual Profesional',
+    parrafos: ['Cédulas profesionales:'],
+    cedulas: [
+      { label: 'Médico cirujano:', numero: '5562211' },
+      { label: 'Cirugía General:', numero: '9178179' },
+      { label: 'Coloproctología:', numero: '9178178' },
+    ],
+  },
+];
+---
+
+<Layout
+  title="¿Quién soy? Soy la Dra. Flor Moreno, Coloproctóloga."
+  description="Soy la Dra. Flor Moreno. Coloproctóloga Certificada."
+>
+  <Navbar client:load />
+  <main class="subpage">
+
+    <PageHero titulo="Soy la Dra. Flor Moreno">
+      <h2 class="font-heading italic text-[#67c5d4] text-2xl md:text-3xl mt-6">
+        Coloproctóloga Certificada.
+      </h2>
+
+      <div slot="aside" class="flex justify-center lg:justify-end">
+        <div
+          class="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden
+                 ring-1 ring-[#4b528a]/40 bg-[#4b528a]/20"
+        >
+          <img
+            src="/images/profile/dra-flor-moreno.jpg"
+            alt="Dra. Flor Moreno — Coloproctóloga Certificada"
+            class="w-full h-full object-cover object-top"
+          />
+          <div aria-hidden="true" class="absolute inset-0 ring-1 ring-inset ring-white/5 rounded-3xl"></div>
+        </div>
+      </div>
+    </PageHero>
+
+    <!-- Pestañas -->
+    <section class="relative bg-[#1e1c2e] py-24 md:py-32 overflow-hidden">
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-[#EF999E]/[0.04] blur-[120px]"></div>
+      </div>
+
+      <div class="relative max-w-4xl mx-auto px-6 lg:px-12" data-tabs data-anim="up">
+        <div
+          role="tablist"
+          aria-label="Sobre la Dra. Flor Moreno"
+          class="flex flex-wrap gap-2 p-1.5 mb-12 rounded-full bg-[#4b528a]/20 border border-[#4b528a]/40 w-fit max-w-full"
+        >
+          {
+            tabs.map((tab, i) => (
+              <button
+                type="button"
+                role="tab"
+                id={`tab-${tab.id}`}
+                aria-controls={`panel-${tab.id}`}
+                aria-selected={i === 0 ? 'true' : 'false'}
+                tabindex={i === 0 ? 0 : -1}
+                class="px-5 md:px-6 py-2.5 rounded-full text-sm font-medium tracking-wide cursor-pointer
+                       text-[#7d84b2] hover:text-[#67c5d4] transition-all duration-500 ease-in-out
+                       aria-selected:bg-[#67c5d4] aria-selected:!text-[#272538]
+                       focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#67c5d4]"
+              >
+                {tab.label}
+              </button>
+            ))
+          }
+        </div>
+
+        {
+          tabs.map((tab, i) => (
+            <div
+              role="tabpanel"
+              id={`panel-${tab.id}`}
+              aria-labelledby={`tab-${tab.id}`}
+              tabindex="0"
+              hidden={i !== 0}
+              class="focus:outline-none"
+            >
+              {tab.parrafos.map((parrafo) => (
+                <p class="text-[#7d84b2] text-lg md:text-xl leading-loose border-l-[3px] border-[#EF999E] pl-7">
+                  {parrafo}
+                </p>
+              ))}
+              {tab.cedulas && (
+                <ul class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                  {tab.cedulas.map((c) => (
+                    <li class="bg-[#4b528a]/20 border border-[#4b528a]/40 rounded-2xl px-6 py-5">
+                      <p class="text-[#7d84b2] text-sm">{c.label}</p>
+                      <p class="font-heading text-[#67c5d4] text-2xl mt-1 tracking-wide">{c.numero}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-tabs]').forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+
+    const select = (tab: HTMLButtonElement) => {
+      tabs.forEach((t) => {
+        const selected = t === tab;
+        t.setAttribute('aria-selected', String(selected));
+        t.tabIndex = selected ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute('aria-controls') ?? '');
+        if (panel) panel.hidden = !selected;
+      });
+    };
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('keydown', (e) => {
+        const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!dir) return;
+        e.preventDefault();
+        const next = tabs[(i + dir + tabs.length) % tabs.length];
+        next.focus();
+        select(next);
+      });
+    });
+  });
+</script>

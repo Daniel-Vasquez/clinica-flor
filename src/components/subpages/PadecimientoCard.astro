@@ -1,0 +1,40 @@
+---
+// Tarjeta de padecimiento: imagen + título + extracto + "Leer más"
+import { INDICE } from '../../data/padecimientos';
+
+export interface Props {
+  href:     string;
+  titulo:   string;
+  extracto: string;
+  imagen:   string;
+}
+
+const { href, titulo, extracto, imagen } = Astro.props;
+---
+
+<a
+  href={href}
+  data-anim="item"
+  class="group flex flex-col h-full bg-[#4b528a]/20 border border-[#4b528a]/40 rounded-3xl overflow-hidden
+         transition-all duration-500 ease-in-out
+         hover:border-[#EF999E]/40 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.25)]"
+>
+  <div class="aspect-[16/10] overflow-hidden bg-[#4b528a]/30">
+    <img
+      src={imagen}
+      alt=""
+      loading="lazy"
+      class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+    />
+  </div>
+  <div class="flex flex-col flex-1 p-7 md:p-8">
+    <h2 class="font-heading text-white text-2xl md:text-[1.7rem] leading-tight mb-3">{titulo}</h2>
+    <p class="text-[#7d84b2] text-base leading-relaxed mb-7">{extracto}</p>
+    <span
+      class="mt-auto inline-flex items-center gap-2 text-[#67c5d4] text-sm font-semibold tracking-wide"
+    >
+      {INDICE.leerMas}
+      <span aria-hidden="true" class="transition-transform duration-500 group-hover:translate-x-1">→</span>
+    </span>
+  </div>
+</a>

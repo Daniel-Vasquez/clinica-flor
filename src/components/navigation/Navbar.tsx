@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 
-const DOCTORALIA =
-  'https://www.doctoralia.com.mx/flor-gisela-moreno-flores/cirujano-general-proctologo/benito-juarez?utm_id=59944&utm_source=widget-doctor-59944&utm_medium=big_with_calendar&utm_campaign=&utm_content=#highlight-calendar';
+const AGENDA = '/agenda-tu-cita';
 
 interface NavLink {
   href: string;
@@ -10,18 +9,23 @@ interface NavLink {
 }
 
 const NAV_LINKS: NavLink[] = [
-  { href: '#padecimientos', label: 'Padecimientos' },
-  { href: '#clinica',       label: 'La Clínica'    },
-  { href: '#doctora',       label: 'La Doctora'    },
-  { href: '#proceso',       label: 'Proceso'        },
-  { href: '#faq',           label: 'FAQ'            },
-  { href: '#contacto',      label: 'Contacto'       },
+  { href: '/', label: 'Inicio'},
+  { href: '/padecimientos', label: 'Padecimientos' },
+  { href: '/quien-soy', label: '¿Quién soy?' },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isLight, setIsLight] = useState(false);
+  const [pathname, setPathname] = useState('');
+
+  useEffect(() => {
+    setPathname(window.location.pathname.replace(/\/$/, '') || '/');
+  }, []);
+
+  const isActive = (href: string) =>
+    !href.includes('#') && (pathname === href || pathname.startsWith(`${href}/`));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -93,7 +97,10 @@ export default function Navbar() {
               <li key={href}>
                 <a
                   href={href}
-                  className={`text-sm font-medium tracking-wide transition-colors duration-200 ${linkClass}`}
+                  aria-current={isActive(href) ? 'page' : undefined}
+                  className={`text-sm font-medium tracking-wide transition-colors duration-200 ${
+                    isActive(href) ? 'text-[#67c5d4]' : linkClass
+                  }`}
                 >
                   {label}
                 </a>
@@ -112,9 +119,7 @@ export default function Navbar() {
             </button>
 
             <a
-              href={DOCTORALIA}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={AGENDA}
               className="bg-[#67c5d4] text-[#272538] font-bold
                          px-6 py-2.5 rounded-full text-sm
                          hover:bg-[#67c5d4]/90 transition-all duration-200 whitespace-nowrap"
@@ -156,6 +161,7 @@ export default function Navbar() {
               key={href}
               href={href}
               onClick={close}
+              aria-current={isActive(href) ? 'page' : undefined}
               style={{ transitionDelay: menuOpen ? `${i * 55}ms` : '0ms' }}
               className={`font-heading text-3xl font-bold hover:text-[#67c5d4] transition-colors duration-200
                          ${isLight ? 'text-[#1a1830]' : 'text-white'}`}
@@ -179,9 +185,7 @@ export default function Navbar() {
           </button>
 
           <a
-            href={DOCTORALIA}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={AGENDA}
             onClick={close}
             className="mt-2 bg-[#67c5d4] text-[#272538] font-bold
                        px-10 py-4 rounded-full text-lg
