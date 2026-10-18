@@ -1,2 +1,4 @@
 node_modules
 planificacion.md
+.DS_Store
+.astro/settings.json
