@@ -11,10 +11,21 @@ const consultas = [
   { nombre: ['CONSULTA SAN', 'ÁNGEL INN'],         duracion: '30 min.', precio: '$1000 mxn' },
 ];
 
-// Los logos de la fuente no se usan (solo imágenes de public/images): se muestran los nombres.
+// Logotipos en /public/empresas (width/height = tamaño intrínseco, evita saltos de layout)
 const aseguradoras = [
-  'Allianz', 'Atlas', 'AXA', 'Banorte', 'Bupa', 'BX+', 'GNP',
-  'Inbursa', 'Mapfre', 'MetLife', 'Plan Seguro', 'Seguros Monterrey', 'Zurich',
+  { nombre: 'Allianz',           logo: '/empresas/allianz.webp',          width: 191, height: 50 },
+  { nombre: 'Atlas',             logo: '/empresas/atlas.webp',            width: 179, height: 137 },
+  { nombre: 'AXA',               logo: '/empresas/axa.webp',              width: 201, height: 207 },
+  { nombre: 'Banorte',           logo: '/empresas/banorte.webp',          width: 175, height: 20 },
+  { nombre: 'Bupa',              logo: '/empresas/bupa.webp',             width: 201, height: 201 },
+  { nombre: 'BX+',               logo: '/empresas/bx.webp',               width: 158, height: 56 },
+  { nombre: 'GNP',               logo: '/empresas/gnp.webp',              width: 189, height: 71 },
+  { nombre: 'Inbursa',           logo: '/empresas/inbursa.webp',          width: 193, height: 51 },
+  { nombre: 'Mapfre',            logo: '/empresas/mapfre.webp',           width: 177, height: 116 },
+  { nombre: 'MetLife',           logo: '/empresas/metlife.webp',          width: 152, height: 183 },
+  { nombre: 'Plan Seguro',       logo: '/empresas/planseguro.webp',       width: 180, height: 68 },
+  { nombre: 'Seguros Monterrey', logo: '/empresas/segurosmonterrey.webp', width: 164, height: 86 },
+  { nombre: 'Zurich',            logo: '/empresas/zurich.webp',           width: 174, height: 107 },
 ];
 
 const consultorios = [
@@ -90,13 +101,21 @@ const consultorios = [
       >
         <ul class="animate-marquee flex w-max gap-4">
           {
-            [...aseguradoras, ...aseguradoras].map((nombre, i) => (
+            [...aseguradoras, ...aseguradoras].map(({ nombre, logo, width, height }, i) => (
               <li
                 aria-hidden={i >= aseguradoras.length ? 'true' : undefined}
-                class="shrink-0 bg-[#4b528a]/20 border border-[#4b528a]/40 rounded-2xl px-8 py-5
-                       font-heading text-white text-xl whitespace-nowrap"
+                class="shrink-0 flex items-center justify-center bg-white border border-[#4b528a]/20
+                       rounded-2xl px-8 py-4"
               >
-                {nombre}
+                <img
+                  src={logo}
+                  alt={nombre}
+                  width={width}
+                  height={height}
+                  loading="lazy"
+                  decoding="async"
+                  class="h-12 w-auto max-w-[9rem] object-contain"
+                />
               </li>
             ))
           }
