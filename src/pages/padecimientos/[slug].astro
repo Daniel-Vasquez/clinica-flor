@@ -34,7 +34,7 @@ const description = stripTags([p.titulo, ...p.bloques[0].parrafos].join(' '));
     <PageHero titulo={p.titulo} backHref="/padecimientos" backLabel="Padecimientos">
       <div slot="aside">
         <div class="aspect-[4/3] rounded-3xl overflow-hidden ring-1 ring-[#4b528a]/40 bg-[#4b528a]/20">
-          <img src={p.imagen} alt="" class="w-full h-full object-cover" />
+          <img src={p.imagen} alt={p.titulo} class="w-full h-full object-contain object-center rounded-3xl py-4" />
         </div>
       </div>
     </PageHero>
@@ -99,7 +99,7 @@ const description = stripTags([p.titulo, ...p.bloques[0].parrafos].join(' '));
                      ring-4 ring-[#67c5d4]/30 ring-offset-4 ring-offset-[#f2f0fc] bg-[#4b528a]/10"
             >
               <img
-                src="/images/profile/dra-flor-moreno.jpg"
+                src="/flor/Dr-flor-gb-blanco-1 Background Removed.webp"
                 alt="Dra. Flor Moreno"
                 class="w-full h-full object-cover object-top"
                 loading="lazy"

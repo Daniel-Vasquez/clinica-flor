@@ -222,9 +222,11 @@ export default function Navbar() {
                             >
                               <img
                                 src={p.imagen}
-                                alt=""
+                                alt={p.titulo}
                                 loading="lazy"
-                                className="w-10 h-10 rounded-xl object-cover shrink-0 ring-1 ring-[#4b528a]/30"
+                                width="40"
+                                height="40"
+                                className="w-10 h-10 rounded-xl object-contain object-center shrink-0 ring-1 ring-[#4b528a]/30"
                               />
                               <span
                                 className={`text-sm font-medium leading-snug transition-colors duration-200

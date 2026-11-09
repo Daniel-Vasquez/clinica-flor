@@ -28,13 +28,9 @@ export interface Padecimiento {
   relacionados:  string[];
 }
 
-const IMG = {
-  hemorroides: '/images/padecimientos/padecimiento-hemorroides.jpeg',
-  fisuras:     '/images/padecimientos/predecimiento-fisuras-anales.jpeg',
-  fistula:     '/images/padecimientos/predecimiento-fistula-anal.jpeg',
-  clinica:     '/images/clinica/clinica-interior.jpg',
-  hero:        '/images/hero-bg.jpg',
-};
+// Imágenes en /public/padecimientos: cada archivo se llama igual que el título del padecimiento.
+// encodeURIComponent porque los nombres tienen espacios y acentos.
+const img = (nombre: string) => `/padecimientos/${encodeURIComponent(nombre)}.webp`;
 
 export const CTA = {
   recordatorio: 'Recuerda agendar tu cita a la primera molestia o síntoma. Evitemos complicaciones y padecimientos más graves.',
@@ -61,7 +57,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'hemorroides',
     seoTitle: 'Hemorroides | Clínica Colorrectal',
     titulo: 'Hemorroides',
-    imagen: IMG.hemorroides,
+    imagen: img('Hemorroides'),
     indice:      { titulo: 'Hemorroides', extracto: 'Las hemorroides, también conocidas como almorranas…' },
     relacionada: { titulo: 'Hemorroides', extracto: 'Las hemorroides, también conocidas como almorranas…' },
     bloques: [
@@ -96,7 +92,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'fisuras',
     seoTitle: 'Fisuras | Clínica Colorrectal',
     titulo: 'Fisuras',
-    imagen: IMG.fisuras,
+    imagen: img('Fisuras'),
     indice:      { titulo: 'Fisuras', extracto: 'Es una herida en la piel perianal por trauma anal…' },
     relacionada: { titulo: 'Fisuras', extracto: 'Es una herida en la piel perianal por trauma anal…' },
     bloques: [
@@ -111,7 +107,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'fistula-anal',
     seoTitle: 'Fistula Anal | Clínica Colorrectal',
     titulo: 'Fistula anal',
-    imagen: IMG.fistula,
+    imagen: img('Fistula anal'),
     indice:      { titulo: 'Fistula Anal', extracto: 'Comunicación anormal entre la piel perianal y el ano…' },
     relacionada: { titulo: 'Fistula Anal', extracto: 'Comunicación anormal entre la piel perianal y el ano…' },
     bloques: [
@@ -126,7 +122,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'diverticulos',
     seoTitle: 'Divertículos | Clínica Colorrectal',
     titulo: 'Divertículos',
-    imagen: IMG.clinica,
+    imagen: img('Divertículos'),
     indice:      { titulo: 'Diverticulos', extracto: 'Los divertículos son saculaciones en la pared del colon…' },
     relacionada: { titulo: 'Divertículos', extracto: 'Los divertículos son saculaciones en la pared del colon…' },
     bloques: [
@@ -149,7 +145,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'cancer-colonorrectal',
     seoTitle: 'Cancer colonorrectal | Clínica Colorrectal',
     titulo: 'Cáncer colorrectal',
-    imagen: IMG.hero,
+    imagen: img('Cáncer colorrectal'),
     indice:      { titulo: 'Cancer Colonorrectal', extracto: 'Tumor maligno de colon o recto…' },
     relacionada: { titulo: 'Cancer Colonorrectal', extracto: 'Tumor maligno de colon o recto…' },
     bloques: [
@@ -179,7 +175,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'abceso-anal',
     seoTitle: 'Abceso Perianal | Clínica Colorrectal',
     titulo: 'Abceso Perianal',
-    imagen: IMG.fistula,
+    imagen: img('Abceso Perianal'),
     indice:      { titulo: 'Abceso Perianal', extracto: 'Colección de pus en uno de los espcios perianales…' },
     relacionada: { titulo: 'Abceso Perianal', extracto: 'Colección de pus en uno de los espcios perianales…' },
     bloques: [
@@ -194,7 +190,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'condilomas-anales',
     seoTitle: 'Condilomas | Clínica Colorrectal',
     titulo: 'Condilomas',
-    imagen: IMG.fisuras,
+    imagen: img('Condilomas'),
     indice:      { titulo: 'Condilomas', extracto: 'Los divertículos son saculaciones en la pared del colon…' },
     relacionada: { titulo: 'Condilomas Anales', extracto: 'Presencia de verrugas en region genital, por fuera o por dentro…' },
     bloques: [
@@ -209,7 +205,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'cancer-anal',
     seoTitle: 'Cancer anal | Clínica Colorrectal',
     titulo: 'Cancer Anal',
-    imagen: IMG.hemorroides,
+    imagen: img('Cancer Anal'),
     indice:      { titulo: 'Cancer Anal', extracto: 'Tumor maligno de colon o recto…' },
     relacionada: { titulo: 'Cancer Anal', extracto: 'Tumor maligno de colon o recto…' },
     bloques: [
@@ -230,7 +226,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'estrenimiento',
     seoTitle: 'Estreñimiento | Clínica Colorrectal',
     titulo: 'Estreñimiento',
-    imagen: IMG.clinica,
+    imagen: img('Estreñimiento'),
     indice:      { titulo: 'Estreñimiento', extracto: 'Colección de pus en uno de los espcios perianales…' },
     relacionada: { titulo: 'Estreñimiento', extracto: 'Colección de pus en uno de los espcios perianales…' },
     bloques: [
@@ -251,7 +247,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'incontinencia-fecal',
     seoTitle: 'Incontinencia fecal | Clínica Colorrectal',
     titulo: 'Incontinencia Fecal',
-    imagen: IMG.hero,
+    imagen: img('Incontinencia Fecal'),
     indice:      { titulo: 'Incontinencia Fecal', extracto: 'Los divertículos son saculaciones en la pared del colon…' },
     relacionada: { titulo: 'Incontinencia Fecal', extracto: 'Enfermedad muy frecuente, que se considera subdiagnosticada…' },
     bloques: [
@@ -272,7 +268,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'fistulas-colovesical',
     seoTitle: 'Fistulas colovesical | Clínica Colorrectal',
     titulo: 'Fistula colovesical',
-    imagen: IMG.fistula,
+    imagen: img('Fistula colovesical'),
     indice:      { titulo: 'Fistula Colovesical', extracto: 'Comunicación anormal entre el colon y la vejiga…' },
     relacionada: { titulo: 'Fistula Colovesical', extracto: 'Comunicación anormal entre el colon y la vejiga…' },
     bloques: [
@@ -287,7 +283,7 @@ export const padecimientos: Padecimiento[] = [
     slug: 'fistulas-anovaginal',
     seoTitle: 'Fistulas Anovaginal | Clínica Colorrectal',
     titulo: 'Fistula anovaginal',
-    imagen: IMG.fisuras,
+    imagen: img('Fistula anovaginal'),
     indice:      { titulo: 'Fistulas Anovaginal', extracto: 'Colección de pus en uno de los espcios perianales…' },
     relacionada: { titulo: 'Fistula Anovaginal', extracto: 'Colección de pus en uno de los espcios perianales…' },
     bloques: [
